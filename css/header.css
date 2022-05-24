@@ -1,35 +1,17 @@
-*{
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-    font-family: 'Roboto', sans-serif;
-    padding: 0;
-    margin: 0;
-}
 
-body{
-    background-color: #c6ced0;
-    margin: 0;
-}
-
-.header-background{
-    height: 100vh;
-    min-width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    opacity: 0.6;
-}
-
-.header-bar-titlelogo-img{
+.header-bar-titlelogo-img {
     height: 60px; 
     width: 60px;
 }
 
-.navigation-header-container{
+.navigation-header-container {
     display: flex;
     justify-content: space-between;
     background-color: #c6ced06d;
-    position:sticky;
-    opacity: 0.8;
+    position: sticky;
+    top: 0; 
+    left: 0;
+    width: 100%;
     
 }
 .navigation-header-container-box1{
