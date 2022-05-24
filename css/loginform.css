@@ -1,0 +1,44 @@
+.greeting{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.greeting_image{
+    border: 1px;
+    border-radius: 100%;
+}
+
+.login_container{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.723);
+    border: solid;
+    flex-direction: column;
+    width: 30%;
+    height: 800px;
+    align-items: center;
+    margin: auto;
+}
+.login{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.login_info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.email{
+    font-size: large;
+}
+.password{
+    font-size: large;
+}
+.remember_me{
+    font-size: large;
+}

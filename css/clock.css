@@ -1,0 +1,69 @@
+html {
+    --container-size: 75vmin;
+    --clock-size: calc( var(--container-size) * 0.9 );
+    --border-size: calc( var(--clock-size) * 0.075 );
+    --clock-radius: calc( var(--clock-size) * 0.5 - var(--border-size) );
+    --hr-pointer-width: calc( var(--clock-radius) * 0.04);
+    --hr-pointer-length: calc( var(--clock-radius) * 0.5);
+    --hr-pointer-offset: calc( var(--hr-pointer-width) / 2);
+    --min-pointer-width: calc( var(--clock-radius) * 0.02);
+    --min-pointer-length: calc( var(--clock-radius) * 0.75);
+    --min-pointer-offset: calc( var(--min-pointer-width) / 2);
+    --sec-pointer-width: calc( var(--clock-radius) * 0.01);
+    --sec-pointer-length: calc( var(--clock-radius) * 0.9);
+    --sec-pointer-offset: calc( var(--sec-pointer-width) / 2);
+    --font-size: calc( var(--clock-radius) * 0.3);
+    --num-dist: calc( var(--clock-radius) * 0.8);
+    --d-font-size: calc( var(--font-size) * 1.25);
+    --d-padding: calc( var(--d-font-size) * 0.20);
+    --d-border: var(--d-padding);
+}
+
+/* ------------------------------------------------------
+
+------------------------------------------------------ */
+
+
+.container {
+    width: var(--container-size);
+    height: var(--container-size);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.sm-container {
+    padding: var(--d-padding);
+    background-color: black;
+    border: solid grey var(--d-padding);
+    border-radius: 30px;
+    width: 27%;
+    opacity: 0.5;
+
+    position: absolute;
+    top: 60%;
+    left: 34.5%;
+}
+
+.sm-container .digit-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-size: var(--d-font-size);
+    font-family: "Orbitron", sans-serif;
+    color: #c6ced0b6;
+}
+
+.sm-container .d-ampm {
+    margin-left: 0.25em;
+}
+/*# sourceMappingURL=style.css.map */
