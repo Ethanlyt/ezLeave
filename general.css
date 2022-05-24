@@ -1,0 +1,76 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    background-image: url("image/background1.png");
+    background-color: #2196F3;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.header {
+    font-size: xx-large;
+    font-style: italic;
+    color: #414C6B;
+    font-weight: bold;
+    text-align: center;
+    background-color: #6dcbed;
+    padding: 2%;
+    border-radius: 10px;
+    width: 80%;
+    margin-bottom: 1%;
+}
+
+.icon {
+    height: 1em;
+    width: 1em;
+    float: right;
+    padding-right: 3%;
+
+}
+
+.navigation {
+    margin: auto;
+    width: 80%;
+}
+
+.navigation>ul>li {
+    display: inline;
+    padding-right: 10%;
+    text-align: center;
+    color: #414C6B;
+}
+
+.grid-container {
+    display: grid;
+    background-color: #A5DEF2;
+    padding: 5px;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.grid-container>div {
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.grid-content {
+    display: grid;
+    align-content: center;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    background-color: #A5DEF2;
+}
+
+.grid-content>div {
+    background-color: #76b1c7;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+}
