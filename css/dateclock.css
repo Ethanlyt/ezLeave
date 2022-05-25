@@ -1,0 +1,22 @@
+
+.date {
+    display: flex;
+    gap: 1rem;
+
+    font-size: 3.5vw;
+    opacity: .4;
+    font-weight: 300;
+
+}
+
+
+.clock {
+    display: flex;
+    gap: 1rem;
+
+    font-size: 6.5vw;
+    opacity: .7;
+    font-weight: bolder;
+
+    margin-bottom: 5rem;
+}

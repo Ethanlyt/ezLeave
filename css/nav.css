@@ -1,0 +1,63 @@
+
+
+.nav {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    inset: 0 auto;
+    height: var(--nav-height);
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+
+    background-color: var(--blue4);
+    color: white;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    color: white;
+}
+
+.nav-brand-img {
+    font-size: 3rem;
+    color: white;
+}
+
+.nav-brand-title {
+    font-size: 2.75rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+}
+
+.nav-menu {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.75rem;
+    
+    font-weight: 700;
+}
+
+.nav-item i {
+    font-size: 2rem;
+    color: white;
+    padding-right: .5rem;
+}
+
+.nav-item a {
+    font-size: 1.75rem;
+    color: white;
+}

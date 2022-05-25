@@ -1,14 +1,46 @@
-*{
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-    font-family: 'Roboto', sans-serif;
+* {
+    /* CSS Reset */
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background-color: #c6ced0;
-    margin: 0;
+html {
+    /* Google fonts
+        - Roboto
+        - Orbitron
+
+        font-family: 'Orbitron', sans-serif;
+        font-family: 'Roboto', sans-serif;
+    */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    
+
+    /* Variables */
+    --blue1: #a5def2;
+    --blue2: #5baeb7;
+    --blue3: #1e80c1;
+    --blue4: #414c6b;
+    
+    --nav-height: 50px;
+    
+    font-size: 10px !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+.padded-container {
+    padding-left: max(20px,calc(50vw - 512px));
+    padding-right: max(20px,calc(50vw - 512px));
+}
+
+a {
+    text-decoration: none;
 }
 
 
-
+.button {
+    appearance: none;
+    border: none;
+    background-color: none;
+    cursor: pointer;
+}

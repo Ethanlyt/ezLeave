@@ -1,4 +1,101 @@
-.greeting{
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+
+    background: rgba(0, 0, 0, .45) url("/image/headerbackground.jpg");
+    background-blend-mode: darken;
+
+    display: grid;
+    place-items: center;
+}
+
+
+.login {
+    background-color: #fff;
+    padding: 2rem;
+}
+
+
+.login_head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    font-size: 1.75rem;
+    color: var(--blue3);
+}
+
+.login_back {
+    font-size: 3rem;
+    margin-right: 2rem;
+}
+
+
+.login_title {
+    text-align: center;
+    color: var(--blue3);
+    font-weight: 300;
+    font-size: 3rem;
+    margin: 1em 0;
+}
+
+
+
+.form-group {
+    position: relative;
+    width: 100%;
+    margin: 3rem 0;
+}
+
+
+.form-group .text_field {
+    font-size: 2.2rem;
+    font-weight: lighter;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    border-bottom: solid 1px black;
+    border-radius: 0;
+
+    width: 100%;
+}
+
+.form-group .text_overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 2rem;
+    font-weight: lighter;
+    transition: all .3s ease;
+    cursor: text;
+}
+
+
+.form-group .text_field:is(:focus, :not(:placeholder-shown ) ) ~ .text_overlay {
+    top: -1.5em !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+}
+
+
+
+.login_button {
+    background-color: var(--blue3);
+    color: white;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 100;
+    padding: 1rem 0;
+}
+
+
+
+/* .greeting{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -41,4 +138,4 @@
 }
 .remember_me{
     font-size: large;
-}
+} */
