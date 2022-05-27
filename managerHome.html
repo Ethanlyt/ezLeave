@@ -3,12 +3,17 @@
 <head>
     <title>Manger Home Page</title>
     <!-- CSS -->
+    <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/jumbotron.css">
     <link rel="stylesheet" href="css/managerHome.css">
-    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/dateclock.css">
+
+
     <!-- JSript -->
     <script src="javascript/managerHome.js"></script>
+    <script src="/javascript/timeclock.js"></script>
+
     <!-- External source -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
@@ -21,71 +26,102 @@
             <i class="nav-brand-img lab la-envira"></i>
             <span class="nav-brand-title">EzLeave</span>
         </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                AdmiJW
+            </li>
+            <li class="nav-item">
+                <a href="#"><i class="las la-sign-out-alt"></i>Log out</a>
+            </li>
+        </ul>
     </nav>
 
-    <div class="jumbotron">
-        <div class="container">
-            <div class="container_nav">
-                <b>Leave Application Dashboard</b> 
 
-                
-                <div class="dropdown">
-                    <button class="dropbtn"><i class="las la-filter"></i></button>
-                    <div class="dropdown-content">
-                        <button>Alphabatic</button>
-                        <button>Date added</button>
-                        <button>Leave date</button>
-                    </div>
-                </div>
-                
-                
-                
-            </div>
+    <div class="intro">
+        <h3 class="brand-title">
+            <i class="lab la-envira"></i>
+            EzLeave
+        </h3>
             
-            <div class="line"><hr></div>
+        <p class="brand-desc">
+            Apply leaves with ease
+        </p>
 
-            <div class="container_item">
-                <div class="container_item_text">
-                    <p>Applicant 1</p>
-                </div>
-                <div class="container_item_text">
-                    <p>Applicant 2</p>
-                </div>
-                <div class="container_item_text">
-                    <p>Applicant 3</p>
-                </div>
-                <div class="container_item_text">
-                    <p>Applicant 4</p>
-                </div>
-                <div class="container_item_text">
-                    <p>Applicant 5</p>
-                </div>
-                <div class="container_item_text">
-                    <p>Applicant 6</p>
-                </div>
-                <div class="container_item_text">
-                    <p>Applicant 7</p>
-                </div>
-                <div class="container_item_text">
-                    <p>Applicant 8</p>
-                </div>
-                <div class="container_item_text">
-                    <p>Applicant 9</p>
-                </div>
-                <div class="container_item_text">
-                    <p>Applicant 10</p>
-                </div>
-                <div class="container_item_text">
-                    <p>Applicant 11</p>
-                </div>
-                <div class="container_item_text_add">
-                    <p><img src="https://img.icons8.com/ios-filled/40/4a90e2/add--v1.png" class="add_leave"/></p>
-                </div>
-            </div>
+
+        <div class="date">
+            <span class="date-day" id="date-day">28</span>
+            <span class="date-mon" id="date-mon">January</span>
+            <span class="date-dow" id="date-dow">(Monday)</span>
+        </div>
+    
+        <div class="clock">
+            <span class="clock-hr" id="clock-hr">88</span>
+            <span class="clock-colon">:</span>
+            <span class="clock-min" id="clock-min">88</span>
+            <span class="clock-colon">:</span>
+            <span class="clock-sec" id="clock-sec">88</span>
+            <span class="clock-ampm" id="clock-ampm">AM</span>
         </div>
     </div>
 
 
+
+    <main class="container">
+        <div class="container_nav">
+            <h2>Leave Application Dashboard</h2> 
+
+            
+            <div class="dropdown">
+                <button class="dropbtn"><i class="las la-filter"></i></button>
+                <div class="dropdown-content">
+                    <button>Alphabatic</button>
+                    <button>Date added</button>
+                    <button>Leave date</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="line"><hr></div>
+
+        <div class="container_item">
+            <div class="container_item_text">
+                <p>Applicant 1</p>
+            </div>
+            <div class="container_item_text">
+                <p>Applicant 2</p>
+            </div>
+            <div class="container_item_text">
+                <p>Applicant 3</p>
+            </div>
+            <div class="container_item_text">
+                <p>Applicant 4</p>
+            </div>
+            <div class="container_item_text">
+                <p>Applicant 5</p>
+            </div>
+            <div class="container_item_text">
+                <p>Applicant 6</p>
+            </div>
+            <div class="container_item_text">
+                <p>Applicant 7</p>
+            </div>
+            <div class="container_item_text">
+                <p>Applicant 8</p>
+            </div>
+            <div class="container_item_text">
+                <p>Applicant 9</p>
+            </div>
+            <div class="container_item_text">
+                <p>Applicant 10</p>
+            </div>
+            <div class="container_item_text">
+                <p>Applicant 11</p>
+            </div>
+            <div class="container_item_text_add">
+                <p><img src="https://img.icons8.com/ios-filled/40/4a90e2/add--v1.png" class="add_leave"/></p>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>

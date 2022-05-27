@@ -5,6 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 999;
 
     inset: 0 auto;
     height: var(--nav-height);

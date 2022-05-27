@@ -13,23 +13,6 @@
 
 
 
-.jumbotron_title {
-    color: var(--blue3);
-    font-size: 4rem;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 800;
-}
-
-.jumbotron_desc {
-    color: var(--blue3);
-    font-size: 1.75rem;
-    font-weight: 300;
-    font-family: 'Roboto', sans-serif;
-
-    margin-bottom: 3rem;
-}
-
-
 
 .jumbotron_content {
     display: flex;

@@ -44,3 +44,21 @@ a {
     background-color: transparent;
     cursor: pointer;
 }
+
+
+
+.brand-title {
+    color: var(--blue3);
+    font-size: 4rem;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+}
+
+.brand-desc {
+    color: var(--blue3);
+    font-size: 1.75rem;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+
+    margin-bottom: 3rem;
+}
