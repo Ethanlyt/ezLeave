@@ -13,7 +13,6 @@
         "day day day day day day day";
     grid-template-rows: 70px repeat(8, auto);
     grid-template-columns: repeat(7, 1fr);
-
     max-width: 800px;
 }
 

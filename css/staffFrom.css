@@ -4,8 +4,10 @@
 
 .topic{
     text-shadow: 8px 6px 2px rgba(90, 131, 142, 0.388);
+    padding-top: 1%;
     padding-left: 8%;
     margin-right: auto;
+    font-size: large;
 }
 
 .calendar_area, .details_area{
@@ -18,19 +20,24 @@
     border-radius:15px;
     margin-bottom: 25px;
     padding: 10px 6px 10px 6px;
+    
 }
-.calendar{
+.form_parameter{
  text-align: left;
- padding-left: 10px;
+ padding: 1%;
+ font-size:medium;
  font-weight: bold;
 }
+
 .leave_reason {
     border:2px inset rgba(109, 121, 146, 0.559);
     border-radius: 5px;
     line-height: 180%;
     width: 85%;
     margin-bottom: 20px;
+    margin-top: 1%;
   }
+
 .option{
     padding-right: 8%;
     padding: 5px 10% 5px 10px;
@@ -64,17 +71,21 @@
     font-weight: bold;
 }
 
-table, th, td{
+.calendar_style{
+    margin: auto;
+    padding-bottom: 1%;
+
+}
+
+.leave_detail, .leave_detail_parameter,.leave_detail_parameter_cont{
     text-align: left;
     padding: 8px 30px 8px 8px;
     margin: 10px 20px 10px 15px;
-}
-
-td{
-    background-color: #ffffffaf;
-    border-radius: 5px;
+    font-size:x-small;
 }
 
 .content{
+    background-color: #ffffffaf;
+    border-radius: 5px;
     width: 80%
 }
