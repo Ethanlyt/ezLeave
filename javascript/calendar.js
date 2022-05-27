@@ -4,13 +4,19 @@ const months = ["January", "February", "March", "April", "May", "June",
 const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Thursday", "Friday", "Saturday"];
 
 
-
+// HTML elements
 let leftbtn;
 let rightbtn;
 let yrmonth;
+let overlay;
+let yeartext;
+let leftyrbtn;
+let rightyrbtn;
+const monthGrids = [];
+const calendarGrids = [];
 let selectedDay = null;
 let dateInput;
-const calendarGrids = [];
+
 
 const now = new Date();
 const date = {
@@ -27,10 +33,20 @@ document.addEventListener("DOMContentLoaded", function() {
     rightbtn = document.getElementById('calendar-right');
     yrmonth = document.getElementById('calendar-header-text');
     dateInput = document.getElementById('calendar-input');
+    overlay = document.querySelector('.calendar-overlay');
+    leftyrbtn = document.getElementById('calendar-yr-left');
+    rightyrbtn = document.getElementById('calendar-yr-right');
+    yeartext = document.getElementById('calendar-overlay-year-text');
 
     // Retrieve the 7x6 calendar grids
     for (let i = 1; i <= 7*6; ++i)
         calendarGrids.push( document.querySelector(`.calendar-grid${i}`) );
+    // Retrieve the 4x3 month grids
+    for (let i = 1; i <= 4*3; ++i) {
+        const monthGrid = document.querySelector(`.calendar-mon${i}`);
+        monthGrids.push( monthGrid );
+        monthGrid.addEventListener('click', ()=> selectMonth(i-1) );
+    }
 
     setYearMonthText();
     setDays();
@@ -38,6 +54,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     leftbtn.addEventListener('click', setPrevmonth);
     rightbtn.addEventListener('click', setNextMonth);
+    yrmonth.addEventListener('click', openYearMonthOverlay);
+    leftyrbtn.addEventListener('click', setPreviousYear);
+    rightyrbtn.addEventListener('click', setNextYear);
 });
 
 
@@ -133,4 +152,41 @@ function clearSelectedDay() {
     selectedDay.classList.remove('calendar-day-selected');
     selectedDay = null;
     dateInput.value = '';
+}
+
+
+// Opens the year / month selection
+function openYearMonthOverlay() {
+    // Slide in the overlay
+    overlay.classList.add('open');
+
+    // Set the year using current year value
+    yeartext.innerText = `Year ${date.year}`;
+}
+
+
+function setPreviousYear() {
+    --date.year;
+    yeartext.innerText = `Year ${date.year}`;
+}
+
+
+function setNextYear() {
+    ++date.year;
+    yeartext.innerText = `Year ${date.year}`;
+}
+
+
+function selectMonth(month) {
+    clearSelectedDay();
+
+    // Set month
+    date.month = month;
+
+    // Close overlay
+    overlay.classList.remove('open');
+
+    // Redraw the calendar.
+    setYearMonthText();
+    setDays();
 }

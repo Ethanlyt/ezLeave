@@ -13,6 +13,7 @@
         "day day day day day day day";
     grid-template-rows: 70px repeat(8, auto);
     grid-template-columns: repeat(7, 1fr);
+    overflow: hidden;
     max-width: 800px;
 }
 
@@ -20,7 +21,7 @@
 
 .calendar-input {
     position: absolute;
-    display: none;
+    opacity: 0;
 }
 
 
@@ -32,22 +33,38 @@
 .calendar-overlay {
     position: absolute;
     display: grid;
-    display: none;
     grid-template-areas:
-        "head head head head"
+        "header header header header"
         "jan feb mar apr"
         "may jun jul aug"
         "sep oct nov dec";
+    grid-template-rows: 70px repeat(3, auto);
+    grid-template-columns: repeat(4, 1fr);
     inset: 0;
-    background-color: red;
+
+    transition: all .3s ease;
+    opacity: 0;
+    transform: translateY(-100%);
+}
+.calendar-overlay.open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.calendar-mon {
+    font-size: 2rem;
+    font-weight: bolder;
+    background-color: var(--blue1);
+    transition: all .3s ease;
 }
 
 
 
-/* =====================
- * Calendar Header
-  ===================== */
-.calendar-header {
+
+/* ================================
+ * Calendar Header + Overlay header
+  ================================ */
+.calendar-header, .calendar-overlay-year {
     grid-area: header;
     display: flex;
     justify-content: space-between;
@@ -65,6 +82,12 @@
 .calendar-header-btn {
     color: white;
     font-size: 1em;
+}
+
+.calendar-header-text {
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 
@@ -96,8 +119,14 @@
   ===================== */
 .calendar-grid {
     background-color: var(--blue1);
+    transition: all .3s ease;
 }
 
+
+
+:is(.calendar-mon, .calendar-grid):is(:hover, :focus) {
+    background-color: var(--blue2);
+}
 
 
 .calendar-button {
