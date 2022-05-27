@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>staff details</title>
+    <title>Staff details</title>
     <link rel="stylesheet" href="css/adminform.css">
+    <link rel="stylesheet" href="css/jumbotron.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/nav.css">
+
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    
+
 </head>
 <body>
+    <nav class="nav padded-container">
+        <a href="/" class="nav-brand">
+            <i class="nav-brand-img lab la-envira"></i>
+            <span class="nav-brand-title">EzLeave</span>
+        </a>
+    </nav>
     
-    <h1 class="jumbotron_title">
-        <i class="lab la-envira"></i>
-        EzLeave
-    </h1>
-
+<div class="jumbotron">
+    <div class="jumbotron_content">
         <h1 class="page-title">USER MANAGEMENT</h1>
-        <hr>
+
         <div class="staff-details">
-        <form name="detail form" method="post" action="">
-            <h3>STAFF DETAILS</h3>
-            <hr>
-            <div class="content-type">Name</div>
-            <input type="text" id="name" name="name">
-            <div class="content-type">IC / Passport</div>
-            <input type="text" id="ic" name="ic">
-            <div class="content-type">Staff ID</div>
-            <input type="text" id="staffid" name="staffid">
-            <div class="content-type">Contact NO.</div>
-            <input type="text" id="contact" name="contact">
-            <div class="content-type">Email</div>
-            <input type="text" id="email" name="email">
-            <div class="content-type">User level</div>
+            <form name="detail form" method="post" action="">
+                <h3 class="form_title">STAFF DETAILS</h3>
+                <hr class="line">
 
-            <select name="user level">
-                <option value="staff" checked> STAFF</option>
-                <option value="manager"> MANAGER</option>
-            </select>
-            <br><hr>
+                <div class="content-type">Name</div>
+                <input type="text" id="name" name="name" class="input_field">
 
-        
-            <div class="button">
-            <input type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure?')" class="button_submit">
-            <input type="submit" value="Submit" class="button_submit">
-            </div>
-        
+                <div class="content-type">IC / Passport</div>
+                <input type="text" id="ic" name="ic" class="input_field">
 
-        </form>
+                <div class="content-type">Staff ID</div>
+                <input type="text" id="staffid" name="staffid" class="input_field">
+
+                <div class="content-type">Contact NO.</div>
+                <input type="text" id="contact" name="contact" class="input_field">
+
+                <div class="content-type">Email</div>
+                <input type="text" id="email" name="email" class="input_field">
+
+                <div class="content-type">User level</div>
+                <select name="user level">
+                    <option value="staff" checked> STAFF</option>
+                    <option value="manager"> MANAGER</option>
+                </select>
+
+                
+
+                <hr c>
+                <div class="edit_type">
+                    
+                    <input type="submit" name="delete" value="Delete" onclick="return confirm('Are you sure to delete this user?')" class="button button_submit">
+                    <input type="submit" value="Submit" class="button button_submit" >
+                </div>
+            
+
+            </form>
+        </div>
     </div>
+</div>
 </body>
 </html>

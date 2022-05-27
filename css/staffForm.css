@@ -1,17 +1,27 @@
-.jumbotron{
-    background-image: url("/image/bluebackground.jpg");
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, .45) url("/image/bluebackground.jpg");
+    background-blend-mode: darken;
+    place-items: center;
 }
+
 
 .topic{
     text-shadow: 8px 6px 2px rgba(90, 131, 142, 0.388);
     padding-top: 1%;
     padding-left: 8%;
+    padding-bottom: 1%;
     margin-right: auto;
     font-size: large;
 }
 
 .calendar_area, .details_area{
     width: 85%;
+    min-height: fit-content;
     margin: auto;
     background-color: #ffffffc1;
     box-shadow: 7px 8px 4px rgba(115, 139, 145, 0.333);
@@ -19,7 +29,7 @@
     border:1px solid rgba(255, 255, 255, 0.758);
     border-radius:15px;
     margin-bottom: 25px;
-    padding: 10px 6px 10px 6px;
+    padding: 1.2%;
     
 }
 .form_parameter{
@@ -46,12 +56,14 @@
     font-weight: bold;
     border-style:none;
     margin-right:15px;
-    width:10%;
-    height: 30px;
-    background-color: rgb(208, 224, 238);
+    width:20%;
+    height: 40px;
     box-shadow: 5px 5px 2px rgba(132, 154, 201, 0.562);
     font-size: 16px;
     border-radius: 5px;
+    background-color: var(--blue3);
+    color: white;
+
 }
 
 .button_left{
@@ -87,5 +99,6 @@
 .content{
     background-color: #ffffffaf;
     border-radius: 5px;
-    width: 80%
+    width: 80%;
+    padding-left: 1%;
 }
