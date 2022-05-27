@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="css/staffFrom.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/jumbotron.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="calendar.html" rel="import">
 </head>
 
 <body>
@@ -18,46 +20,50 @@
     </nav>
 
     <div class="jumbotron">
-    <div class="topic">
-        <h1>LEAVE APPLICATION FORM</h1>
-    </div>
-    <div class="calendar_area">
-        <form name="leave form" method="GET" action="">
-            <div class="bla">please choose a date blablabla </div>
-            <hr>
-                <div class="calendar_pic">  放个日历等等。。。</div>
 
-                <div class="bla">Leave reason</div>
+        <div class="topic">
+            <h1>LEAVE APPLICATION FORM</h1>
+        </div>
+
+        <div class="calendar_area">
+            <form name="leave form" method="GET" action="">
+                <div class="calendar">Calendar (Choose a date to apply leave) : </div>
                 <hr>
-                <div class="text"> <textarea name="leave reason" from="leave form">Write your leave reason here...</textarea> </div>
-                <div class="option">
-                    <input type="submit" value="Submit" class="button_right">
-                    <input type="reset" value="Clear" class="button_left">
-                </div>
-    
-        </form>
+                
+                    <div w3-include-html="calendar.html"> 放个日历等等。。。</div>
+                    <script>includeHTML();</script>
 
-<br><br>
-    </div>
+                    <div class="calendar">Leave reason : </div>
+                    <hr>
+                    <div> <textarea name="leave reason" class="leave_reason" from="leave form">Write your leave reason here...</textarea> </div>
+                    <div class="option">
+                        <input type="submit" value="Submit" class="button_right">
+                        <input type="reset" value="Clear" class="button_left">
+                    </div>
+        
+            </form>
 
-    <div class="details_area">
-        <div class="details_sentence">Leave Details <hr></div>
-        <table>
-            <tr>
-                <th>Approval manager: </th>
-                <td class="content">blabla...</td>
-            </tr>
-            <tr>
-                <th>Approval time: </th>
-                <td lass="content">blabla...</td>
-            </tr>
-            <tr>
-                <th>Last modified: </th>
-                <td>blabla...</td>
-            </tr>
-        </table>
+    <br><br>
+        </div>
 
-    </div>
+        <div class="details_area">
+            <div class="details_sentence">Leave Details <hr></div>
+            <table>
+                <tr>
+                    <th>Approval manager: </th>
+                    <td class="content">blabla...</td>
+                </tr>
+                <tr>
+                    <th>Approval time: </th>
+                    <td lass="content">blabla...</td>
+                </tr>
+                <tr>
+                    <th>Last modified: </th>
+                    <td>blabla...</td>
+                </tr>
+            </table>
+
+        </div>
     </div>
 </body>
 
