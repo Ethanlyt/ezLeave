@@ -8,7 +8,7 @@ body {
 
 .intro {
     margin: 4rem 0;
-    font-size: 1.5vw;
+    font-size: min(1.5vw, 1.25rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,7 +82,7 @@ body {
 }
 
 .card-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 300;
 }
 
@@ -94,7 +94,7 @@ body {
 }
 
 .card-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bolder;
 }
 
@@ -109,9 +109,10 @@ body {
 }
 
 
-.status-pending { color: var(--blue2); }
+.status-pending { color: var(--blue3); }
 .status-verified { color: rgb(8, 181, 8); }
 .status-rejected { color: rgb(233, 45, 45); }
+.status-expired { color: grey; }
 
 
 /* ===========================

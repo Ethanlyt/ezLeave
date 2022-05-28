@@ -1,81 +1,126 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url(" /image/bg3.jpg");
+    background-image: url("/image/bg3.jpg");
     min-height: 100vh;
     background-size: cover;
 }
 
-.topic{
-    position:top;
-    width: 85%;
-    padding: 2px;
-    background-color: var(--blue4);
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-size: x-small;
-    padding: 1%;
-    margin: 25px auto;
+
+.intro {
+    margin: 4rem 0;
+    font-size: min(1.5vw, 1.25rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.title{
+
+
+.topic h1 {
+    font-size: 3rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 auto 1em auto;
+    padding: 1em 0;
+    width: 60%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+
+}
+
+
+.container_nav {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    padding: 2rem;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+
+    background-color: #ffffffc1;
+    box-shadow: 7px 8px 4px rgba(115, 139, 145, 0.333);
+
+    border-radius:15px;
+    border: 1px solid rgba(255, 255, 255, 0.758);
+}
+
+.container_nav h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 2.25rem;
+    font-weight: 300;
+}
+
+.searchfield {
+    display: flex;
+    justify-content:space-between;
+    gap: 10px;
+    flex: 1;
+}
+
+
+.searchparameter {
+    flex: 1;
+
+    border: none;
+    border-radius: 7px;
+    padding: .75em;
+    width: 80%;
+    
+    font-family: "Roboto", sans-serif;
+    box-shadow: 0 0 2px #b9b9b9;
+}
+
+
+
+.searchbutton {
+    border-radius: 8px;
+    padding: .5em 2em;
+    box-shadow: 2px 5px 2px rgb(175, 189, 234);
+    background-color: var(--blue3);
+    color:white;
+
+    transition: all .3s ease;
+}
+
+.searchbutton:is(:hover, :focus) {
+    background-color: var(--blue2);
+}
+
+
+.title {
     display: flex;
     flex-direction: row;
 
 }
-.la-user-edit{
-    padding-left: 1%;
-    padding-right: 1%;
-}
 
-.searchfield{
-    width:60%;
-    float:right;
-    text-align:left;
-    border-radius: 9px;
-    color:gray;
-}
-
-.searchparameter{
-    border-color: rgb(199, 199, 199);
-    color: var(--blue4);
-    border-radius: 7px;
-    padding: 1%;
-    line-height: 40%;
-    width: 55%;
-    box-shadow: 2px 2px 2px #b9b9b9;
-    float:inherit;
-    margin-right: 1%;
-    
-}
-
-.searchbutton{
-    float:inherit;
-    height: auto;
-    border-style: none;
-    border-radius: 8px;
-    padding: 3px;
-    box-shadow: 2px 5px 2px rgb(175, 189, 234);
-    background-color: rgba(84, 84, 84, 0.635);
-    color:white;
-    width:min-content;
-}
-
-.home-content, .staff-list{
+.staff_list_container{
     background-color: #ffffffc1;
     box-shadow: 7px 8px 4px rgba(115, 139, 145, 0.333);
-    text-align:left;
     border-radius:15px;
     margin-bottom: 20px;
     font-weight: bold;
-    width: 85%;
+    width: 90%;
     border: 1px solid rgba(255, 255, 255, 0.758);
     margin: 25px auto;
     padding: 3rem 2rem;
-    font-size: medium;
+    font-size: medium;    
 }
 
 
+.staff_list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
 
 
+.staff_list h4 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 3rem;
+}
 
 button:active{
     background-color: rgb(169, 203, 255);
@@ -85,49 +130,184 @@ button:active{
     transform: translateY(4px);
 }
 
-img{
-    float:right;
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-}
-
-.flex-container{
+.flex_container {
     margin-top: 30px;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+    padding-right: 2%;
+    
+    
 }
 
-.flex-container > div {
+.flex_container_item{
     background-color: #ffffff;
-    width: 90%;
-    margin: 3px;
-    margin-left: 15px;
+    flex-basis: 100%;
+    margin: 1rem 0;
     text-align: left;
-    line-height: 40%;
-    font-size: 12px;
-    border-radius: 5px;
+    height: 40%;
+    font-size: 20px;
+    border-radius: 10px;
     position:relative;
-  }
+}
 
-  .flex-container > div:hover{
+.flex_container_item:hover{
     background-color: #b5bed0;
     transition: all 0.5s;
     cursor: pointer;
-  }
+}
 
-  .flex-container > div:after{
+.flex_container_item:after{
     content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
     transition: 0.8s;
-  }
+}
 
-  .flex-container > div:active{
+.flex_container_item:active{
     background-color: #4c638c;
     color:white;
-  }
+}
 
+/* ===========================
+    Drop down
+ ============================== */
+ .dropdown {
+    position: relative;
+
+}
+
+.dropbtn {
+    padding: 8px 16px;
+    border-radius: 3px;
+    font-size: 3rem;
+    justify-self: flex-end;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+
+    flex-direction: column;
+    min-width: 300%;
+    
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content button {
+    padding: 1em 2em;
+    display: block;
+    transition: all .3s ease;
+    font-size: 1.5rem;
+}
+
+.dropdown-content button:is(:hover, :focus) {
+    background-color: #d7d7d7;
+
+}
+
+.dropdown:is(:hover, :focus) .dropdown-content {
+    display: flex;
+}
+
+.dropdown:is(:hover, :focus) .dropbtn {
+    background-color: #b3b3b3;
+}
+
+/* ===========================
+    Table
+ ============================== */
+.table_staff{
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    
+    width: 100%;
+}
+
+.table_staff,.table_header{
+    font-weight: bold;
+    text-align: left;
+    
+}
+
+.table_staff,.table_item{
+    font-size: small;
+
+}
+
+th {
+    background-color: var(--blue4);
+    color: white;
+}
+
+tr:nth-child(2n+1) {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+td {
+    border-top: black solid 2px;
+    font-size: medium;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+}
+
+
+
+
+.table_item{
+    padding-top: 4%;
+    padding-top: 4%;
+    border-style: solid;
+    border-top:#4c638c 10px;
+}
+
+.header_index{
+    padding: 1%;
+}
+.header_name{
+    padding: 1%;
+}
+.header_id{
+    padding: 1%;
+}
+.item_index{
+    padding: 1%;
+}
+.item_name{
+    padding: 1%;
+}
+.item_id{
+    padding: 1%;
+}
+.item_index_first{
+    border-top: none;
+}
+.item_name_first{
+    border-top: none;
+}
+.item_id_first{
+    border-top: none;
+}
+table .la-user-edit{
+    font-size: large;
+    transition: all .3s ease;
+    padding: 15px;
+    display: block;
+    width: 100%;
+}
+
+table .la-user-edit:is(:hover, :focus){
+    background-color: #b3b3b3;
+}
+
+.edit_icon{
+    text-align: center;
+}
 

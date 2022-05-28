@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Admin Homepage</title>
-    <link rel="stylesheet" href="css/adminHome.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/jumbotron.css">
+    <title>Admin Dashboard</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/calendar.css">
-    <link rel="stylesheet" href="css/managerHome.css">
+    <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/dateclock.css">
+    <link rel="stylesheet" href="css/adminHome.css">
     
     <script src="/javascript/timeclock.js"></script>
+
+
     <!-- External -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
@@ -29,13 +33,15 @@
         </a>
         <ul class="nav-menu">
             <li class="nav-item">
-                AdmiJW
+                <a href="/adminform.html">AdmiJW</a>
             </li>
             <li class="nav-item">
                 <a href="#"><i class="las la-sign-out-alt"></i>Log out</a>
             </li>
         </ul>
     </nav>
+
+
 
     <div class="intro">
         <h3 class="brand-title">
@@ -63,50 +69,72 @@
         </div>
     </div>
 
-    <div class="topic">
-        <h1>LEAVE APPLICATION MANAGEMENT</h1>
-        <p><i>(ADMIN view)</i></p>
-    </div>
 
-    <div class="home-content">
-        <div class="title">
-            <h2><i class="las la-user-edit"></i>Choose a staff</h2>
-            <div class="searchfield">
-                <button class="searchbutton">Search</button>
-                <textarea name="searchtext" class="searchparameter" >Enter to search...</textarea>
-            </div>
+    <!--  -->
+    <div>
+        <div class="topic">
+            <h1><i class="las la-user-cog"></i> LEAVE APPLICATION USER MANAGEMENT</h1>
         </div>
 
-        <div class="staff-list">
-            <p> < STAFF LIST > </p>
-               <div class="dropdown">
-                   <button class="dropbtn"><i class="las la-filter"></i></button>
-                   <div class="dropdown-content">
-                       <button>Alphabatic</button>
-                       <button>Date added</button>
-                       <button>Leave date</button>
-                   </div>
-               </div>
-               
-           <hr>
-           <div class="flex-container">
-               <div>1</div>
-               <div>2</div>
-               <div>3</div>  
-               <div>4</div>
-               <div>5</div> 
-               <div>6</div>
-               <div>7</div> 
-               <div>4</div>
-               <div>5</div> 
-               <div>6</div>
-               <div>7</div> 
-           </div>
-       </div>
+
+        <div class="container_nav">
+            <h2><i class="las la-user-edit "></i> Choose a staff</h2>
+            <div class="searchfield">
+                <input type="text" name="search_paramter" class="searchparameter" placeholder="Search ID/Name..."/>
+                <button class="button searchbutton"><i class="las la-search"></i> Search</button>
+            </div>
+        </div>
+        
+        <div class="staff_list_container">
+            <div class="staff_list">
+                <h4><i class="las la-bars"></i> Staff List</h4>
+
+                <div class="dropdown">
+                    <button class="button dropbtn"><i class="las la-filter"></i></button>
+                    <div class="dropdown-content">
+                        <button class="button"><i class="las la-sort-alpha-down"></i> Alphabatic</button>
+                        <button class="button"><i class="las la-calendar-plus"></i> Date added</button>
+                        <button class="button"><i class="las la-calendar-day"></i> Leave date</button>
+                    </div>
+                </div>
+            </div>
+                
+            <hr class="line"> 
 
 
+            <table class="table_staff">
+                <tr class="table_header">
+                    <th class="header_index">No.</th>
+                    <th class="header_name">Staff Name</th>
+                    <th class="header_id">Staff ID</th>
+                    <th></th>
+                </tr>
+                
+                <tr class="table_item">
+                    <td class="item_index item_index_first">1</td>
+                    <td class="item_name item_name_first">SOH JUN WEI </td>
+                    <td class=" item_id item_id_first">EZ#8276493</td>
+                    <td class="item_id_first edit_icon">
+                        <a href="#"><i class="las la-user-edit"></i></a>
+                    </td>
+                </tr>
+                <tr class="table_item">
+                    <td class="item_index">2</td>
+                    <td class="item_name">ETHAN LEONG YI THIAN </td>
+                    <td class="item_id">EZ#8415643</td>
+                    <td class="edit_icon"><a href="#"><i class="las la-user-edit"></i></a></td>
+                </tr>
+                <tr class="table_item">
+                    <td class="item_index">3</td>
+                    <td class="item_name">ZHU YI CHEN </td>
+                    <td class="item_id">EZ#2823145</td>
+                    <td class="edit_icon"><a href="#"><i class="las la-user-edit"></i></a></td>
+                </tr>
+            </table>
+
+            
+        </div>
     </div>
-
     
         
 

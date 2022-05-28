@@ -1,0 +1,30 @@
+.leave_detail {
+    margin: 2em 0;
+}
+
+.content {
+    background-color: rgb(235, 235, 235);
+    color: grey;
+}
+
+
+.calendar-header-btn, .calendar-mon, .calendar-header-text, .calendar-button {
+    pointer-events: none;
+}
+
+
+.button_form[value="Approve"] {
+    background-color: rgb(100, 199, 0);
+}
+
+.button_form[value="Approve"]:is(:focus, :hover) {
+    background-color: rgb(121, 242, 0);
+}
+
+.button_form[value="Reject"] {
+    background-color: rgb(227, 53, 0);
+}
+
+.button_form[value="Reject"]:is(:focus, :hover) {
+    background-color: rgb(255, 75, 20);
+}

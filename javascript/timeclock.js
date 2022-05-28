@@ -28,7 +28,7 @@ function setTime(day, month, dow, hr, min, sec, ampm, colons) {
     
     day.innerText = now.getDate();
     month.innerText = months[ now.getMonth() ];
-    dow.innerText = `(${dayOfWeek[ now.getDay() - 1 ]})`;
+    dow.innerText = `(${dayOfWeek[ now.getDay() ]})`;
     hr.innerText = `${(now.getHours() % 12 === 0)? 12: now.getHours() % 12}`.padStart(2, "0");
     min.innerText = `${now.getMinutes()}`.padStart(2, "0");
     sec.innerText = `${now.getSeconds()}`.padStart(2, "0");
