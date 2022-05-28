@@ -1,77 +1,84 @@
-.adminbody{
+body{
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("managerhome.jpg");
+    background-image: url(" /image/bg3.jpg");
     min-height: 100vh;
     background-size: cover;
 }
 
 .topic{
     position:top;
-    width: 100%;
+    width: 85%;
     padding: 2px;
-    background-color: rgba(255, 255, 255, 0.669);
+    background-color: var(--blue4);
     border-radius: 8px;
     margin-bottom: 10px;
+    font-size: x-small;
+    padding: 1%;
+    margin: 25px auto;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+
+}
+.la-user-edit{
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
-h1{
-    text-shadow: 8px 6px 2px rgba(90, 131, 142, 0.388);
-    padding-left: 8%;
-}
-
-div{
-    padding: 10px 6px 10px 6px;
-}
-
-.home-content, .staff-list{
-    width: 90%;
-    height:auto;
-    margin: auto;
-    background-color: #ffffffc1;
-    box-shadow: 7px 8px 4px rgba(115, 139, 145, 0.333);
-    text-align:left;
-    border-radius:15px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-.home-content{
-    background-color: #ffffff4e;
-}
-
-.staff-list{
-    width:90%;
-    text-align: center;
-}
 .searchfield{
     width:70%;
-    height:25px;
     float:right;
     text-align:left;
     border-radius: 9px;
     color:gray;
+    
+    
 }
 
-textarea{
+#sf{
     border-color: rgb(199, 199, 199);
+    color: var(--blue4);
     border-radius: 7px;
-    padding: 5px;
-    line-height: 70%;
-    width: 85%;
-    margin-bottom: 2px;
+    padding: 1%;
+    line-height: 40%;
+    width: 55%;
     box-shadow: 2px 2px 2px #b9b9b9;
+    float:inherit;
+    margin-right: 1%;
+    
 }
 
-button{
-    float:right;
+.searchbutton{
+    float:inherit;
+    height: auto;
     border-style: none;
     border-radius: 8px;
     padding: 3px;
     box-shadow: 2px 5px 2px rgb(175, 189, 234);
     background-color: rgba(84, 84, 84, 0.635);
     color:white;
-    width:70px;
+    width:min-content;
 }
+
+.home-content, .staff-list{
+    background-color: #ffffffc1;
+    box-shadow: 7px 8px 4px rgba(115, 139, 145, 0.333);
+    text-align:left;
+    border-radius:15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    width: 85%;
+    border: 1px solid rgba(255, 255, 255, 0.758);
+    margin: 25px auto;
+    padding: 3rem 2rem;
+    font-size: medium;
+}
+
+
+
+
+
 button:active{
     background-color: rgb(169, 203, 255);
     color:black;
