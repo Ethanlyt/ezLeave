@@ -27,16 +27,14 @@ body{
 }
 
 .searchfield{
-    width:70%;
+    width:60%;
     float:right;
     text-align:left;
     border-radius: 9px;
     color:gray;
-    
-    
 }
 
-#sf{
+.searchparameter{
     border-color: rgb(199, 199, 199);
     color: var(--blue4);
     border-radius: 7px;
