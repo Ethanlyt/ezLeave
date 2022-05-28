@@ -35,6 +35,7 @@ html {
 
 a {
     text-decoration: none;
+    color: unset;
 }
 
 
@@ -43,7 +44,6 @@ a {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    color: unset;
 }
 
 

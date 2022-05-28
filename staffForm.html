@@ -3,11 +3,11 @@
 
 <head>
     <title>Leave Application form</title>
-    <link rel="stylesheet" href="css/staffForm.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/jumbotron.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/staffForm.css">
 
     <script src="/javascript/staffForm.js"></script>
     <script src="/javascript/calendar.js"></script>
@@ -29,15 +29,25 @@
             <i class="nav-brand-img lab la-envira"></i>
             <span class="nav-brand-title">EzLeave</span>
         </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                AdmiJW
+            </li>
+            <li class="nav-item">
+                <a href="#"><i class="las la-copy"></i>Apply</a>
+            </li>
+            <li class="nav-item">
+                <a href="#"><i class="las la-sign-out-alt"></i>Log out</a>
+            </li>
+        </ul>
     </nav>
 
-    <div class="topic">
-        <h1>LEAVE APPLICATION FORM</h1>
-    </div>
+    <main>
+        <h1 class="topic"><i class="las la-file-alt"></i> LEAVE APPLICATION FORM</h1>
 
-    <div class="calendar_area">
-        <form name="leave_form" method="GET" action="">
-            <div class="form_parameter">Calendar (Choose a date to apply leave) : </div>
+        <form name="leave_form" method="GET" action="" class="calendar_area">
+            <label for="calendar-input" class="form_parameter"><i class="las la-calendar"></i> Calendar (Choose a date to apply leave): </label>
+
             <hr>
 
             <div class="calendar">
@@ -53,18 +63,18 @@
                         <button type="button" class="button calendar-header-btn" id="calendar-yr-right"><i class="las la-chevron-right"></i></button>
                     </div>
         
-                    <button class="button calendar-mon calendar-mon1">Jan</button>
-                    <button class="button calendar-mon calendar-mon2">Feb</button>
-                    <button class="button calendar-mon calendar-mon3">Mar</button>
-                    <button class="button calendar-mon calendar-mon4">Apr</button>
-                    <button class="button calendar-mon calendar-mon5">May</button>
-                    <button class="button calendar-mon calendar-mon6">Jun</button>
-                    <button class="button calendar-mon calendar-mon7">Jul</button>
-                    <button class="button calendar-mon calendar-mon8">Aug</button>
-                    <button class="button calendar-mon calendar-mon9">Sep</button>
-                    <button class="button calendar-mon calendar-mon10">Oct</button>
-                    <button class="button calendar-mon calendar-mon11">Nov</button>
-                    <button class="button calendar-mon calendar-mon12">Dec</button>
+                    <button type="button" class="button calendar-mon calendar-mon1">Jan</button>
+                    <button type="button" class="button calendar-mon calendar-mon2">Feb</button>
+                    <button type="button" class="button calendar-mon calendar-mon3">Mar</button>
+                    <button type="button" class="button calendar-mon calendar-mon4">Apr</button>
+                    <button type="button" class="button calendar-mon calendar-mon5">May</button>
+                    <button type="button" class="button calendar-mon calendar-mon6">Jun</button>
+                    <button type="button" class="button calendar-mon calendar-mon7">Jul</button>
+                    <button type="button" class="button calendar-mon calendar-mon8">Aug</button>
+                    <button type="button" class="button calendar-mon calendar-mon9">Sep</button>
+                    <button type="button" class="button calendar-mon calendar-mon10">Oct</button>
+                    <button type="button" class="button calendar-mon calendar-mon11">Nov</button>
+                    <button type="button" class="button calendar-mon calendar-mon12">Dec</button>
                 </div>
         
                 <!-- Section for selecting months -->
@@ -127,36 +137,38 @@
                 <span class="calendar-grid calendar-grid42"></span>
             </div>
 
-            <div class="form_parameter">Leave reason : </div>
+            <label class="form_parameter"><i class="las la-question-circle"></i> Leave reason : </label>
+            
             <hr>
-            <div> <textarea name="leave reason" class="leave_reason" from="leave form" placeholder="Write your leave reason here..."></textarea> </div>
+
+            <textarea name="leave_reason" class="leave_reason" id="leave_reason" form="leave_form" placeholder="Write your leave reason here..."></textarea>
+            
             <hr>
+
             <div class="option">
-                <input type="submit" value="Submit" class="button_right">
-                <input type="reset" value="Clear" class="button_left">
+                <input type="submit" value="Submit" class="button button_form">
+                <input type="reset" value="Clear" class="button button_form">
             </div>
-    
         </form>
-        <br><br>
-    </div>
+    </main>
 
     <div class="details_area">
-        <div class="form_parameter" style="text-align:center">Leave Details </div><hr>
+        <div class="form_parameter"><i class="las la-info"></i> Leave Details </div><hr>
+
         <table class="leave_detail">
             <tr class="leave_detail_parameter">
                 <th class="leave_detail_parameter_cont">Approval manager: </th>
-                <td class="content">blabla...</td>
+                <td class="content">N/A</td>
             </tr>
             <tr class="leave_detail_parameter">
                 <th class="leave_detail_parameter_cont">Approval time: </th>
-                <td class="content">blabla...</td>
+                <td class="content">N/A</td>
             </tr>
             <tr class="leave_detail_parameter">
                 <th class="leave_detail_parameter_cont">Last modified: </th>
-                <td class="content">blabla...</td>
+                <td class="content">N/A</td>
             </tr>
         </table>
-
     </div>
 
 </body>

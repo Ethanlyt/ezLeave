@@ -104,8 +104,12 @@ body {
     margin-bottom: 1em;
 }
 
+.application-time {
+    font-weight: 300;
+}
 
-.status-pending { color: rgb(94, 94, 94); }
+
+.status-pending { color: var(--blue2); }
 .status-verified { color: rgb(8, 181, 8); }
 .status-rejected { color: rgb(233, 45, 45); }
 

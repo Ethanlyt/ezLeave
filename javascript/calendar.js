@@ -122,6 +122,7 @@ function setDays() {
 function getButton(day) {
     const button = document.createElement('button');
     button.classList.add('button', 'calendar-button');
+    button.type = "button";
     button.innerText = day;
     button.addEventListener('click', ()=> {
         date.day = day;
