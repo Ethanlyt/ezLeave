@@ -6,7 +6,7 @@ body {
 
     min-height: 100vh;
 
-    background: rgba(0, 0, 0, .45) url("/image/headerbackground.jpg");
+    background: rgba(0, 0, 0, .45) url("../image/headerbackground.jpg");
     background-blend-mode: darken;
 
     display: grid;
