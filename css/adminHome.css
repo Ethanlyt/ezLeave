@@ -171,6 +171,23 @@ button:active{
     color:white;
 }
 
+.add_button{
+    margin-left: auto;
+}
+
+.la-plus-circle{
+    display: block;
+    transition: all .3s ease;
+    font-size: 3rem;
+    padding: 8px 16px;
+    border-radius: 3px;
+    
+}
+
+.la-plus-circle:is(:hover, :focus){
+    background-color: #b3b3b3;
+}
+
 /* ===========================
     Drop down
  ============================== */
@@ -247,6 +264,7 @@ th {
     color: white;
 }
 
+
 tr:nth-child(2n+1) {
     background-color: rgba(0, 0, 0, 0.075);
 }
@@ -268,6 +286,7 @@ td {
     border-top:#4c638c 10px;
 }
 
+/* Table header */
 .header_index{
     padding: 1%;
 }
@@ -277,6 +296,11 @@ td {
 .header_id{
     padding: 1%;
 }
+.header_level{
+    padding: 1%;
+}
+
+/* Table item */
 .item_index{
     padding: 1%;
 }
@@ -286,6 +310,12 @@ td {
 .item_id{
     padding: 1%;
 }
+.item_level{
+    padding: 1%;
+    font-weight: bold;
+}
+
+/* First row */
 .item_index_first{
     border-top: none;
 }
@@ -295,6 +325,10 @@ td {
 .item_id_first{
     border-top: none;
 }
+.item_level_first{
+    border-top: none;
+}
+
 table .la-user-edit{
     font-size: large;
     transition: all .3s ease;
