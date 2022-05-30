@@ -1,0 +1,9 @@
+Group 3:
+
+TITLE
+Leave Application Management System (Front End)
+
+MEMBER
+1.Soh Jun Wei		A20EC0151
+2.Zhu Yi Chen		A20EC0285
+3.Ethan Leong Yi Thian	A20EC0033
