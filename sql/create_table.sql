@@ -67,3 +67,11 @@ ADD CONSTRAINT admin_user_level_check CHECK (user_level IN ('ADMIN', 'MANGER', '
 
 ALTER TABLE APPLICATION
 ADD CONSTRAINT application_current_stats_check CHECK (approval_status IN ('PENDING', 'APPROVED', 'REJECTED','EXPIRED'));
+
+
+
+-- Insert an admin
+INSERT INTO ADMIN
+(username, password, user_level)
+VALUES
+("hussein", "1234", "ADMIN");
