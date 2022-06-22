@@ -4,6 +4,8 @@ CREATE TABLE ADMIN(
     user_level VARCHAR(10) NOT NULL,
     user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
 );
+
+
 CREATE TABLE STAFF(
     user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -15,6 +17,8 @@ CREATE TABLE STAFF(
     email VARCHAR(10) NOT NULL,
     staff_id VARCHAR(10) NOT NULL
 );
+
+
 CREATE TABLE MANAGER(
     user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -26,6 +30,7 @@ CREATE TABLE MANAGER(
     email VARCHAR(10) NOT NULL,
     manager_id VARCHAR(10) NOT NULL
 );
+
 
 CREATE TABLE APPLICATION(
     application_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -42,6 +47,7 @@ CREATE TABLE APPLICATION(
 );
 
 
+
 ALTER TABLE APPLICATION
     ADD CONSTRAINT staff_id_fk FOREIGN KEY(applicant_ID)
     REFERENCES STAFF(user_id);
@@ -51,13 +57,13 @@ ALTER TABLE APPLICATION
     REFERENCES MANAGER(user_id);
 
 ALTER TABLE STAFF
-ADD CONSTRAINT user_level_check CHECK (user_level IN ('ADMIN', 'MANGER', 'STAFF'));
+ADD CONSTRAINT staff_user_level_check CHECK (user_level IN ('ADMIN', 'MANGER', 'STAFF'));
 
 ALTER TABLE MANAGER
-ADD CONSTRAINT user_level_check CHECK (user_level IN ('ADMIN', 'MANGER', 'STAFF'));
+ADD CONSTRAINT manager_user_level_check CHECK (user_level IN ('ADMIN', 'MANGER', 'STAFF'));
 
 ALTER TABLE ADMIN
-ADD CONSTRAINT user_level_check CHECK (user_level IN ('ADMIN', 'MANGER', 'STAFF'));
+ADD CONSTRAINT admin_user_level_check CHECK (user_level IN ('ADMIN', 'MANGER', 'STAFF'));
 
 ALTER TABLE APPLICATION
-ADD CONSTRAINT application_current_stats CHECK (approval_status IN ('PENDING', 'APPROVED', 'REJECTED','EXPIRED'));
+ADD CONSTRAINT application_current_stats_check CHECK (approval_status IN ('PENDING', 'APPROVED', 'REJECTED','EXPIRED'));
