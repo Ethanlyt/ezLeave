@@ -13,8 +13,8 @@ CREATE TABLE STAFF(
     user_level VARCHAR(10) NOT NULL,
     full_name VARCHAR(100) NOT NULL,
     ic_passport VARCHAR(30) NOT NULL,
-    contact_no VARCHAR(11) NOT NULL,
-    email VARCHAR(10) NOT NULL,
+    contact_no VARCHAR(20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     staff_id VARCHAR(10) NOT NULL
 );
 
@@ -26,8 +26,8 @@ CREATE TABLE MANAGER(
     user_level VARCHAR(10) NOT NULL,
     full_name VARCHAR(100) NOT NULL,
     ic_passport VARCHAR(30) NOT NULL,
-    contact_no VARCHAR(11) NOT NULL,
-    email VARCHAR(10) NOT NULL,
+    contact_no VARCHAR(20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     manager_id VARCHAR(10) NOT NULL
 );
 
@@ -57,13 +57,13 @@ ALTER TABLE APPLICATION
     REFERENCES MANAGER(user_id);
 
 ALTER TABLE STAFF
-ADD CONSTRAINT staff_user_level_check CHECK (user_level IN ('ADMIN', 'MANGER', 'STAFF'));
+ADD CONSTRAINT staff_user_level_check CHECK (user_level IN ('ADMIN', 'MANAGER', 'STAFF'));
 
 ALTER TABLE MANAGER
-ADD CONSTRAINT manager_user_level_check CHECK (user_level IN ('ADMIN', 'MANGER', 'STAFF'));
+ADD CONSTRAINT manager_user_level_check CHECK (user_level IN ('ADMIN', 'MANAGER', 'STAFF'));
 
 ALTER TABLE ADMIN
-ADD CONSTRAINT admin_user_level_check CHECK (user_level IN ('ADMIN', 'MANGER', 'STAFF'));
+ADD CONSTRAINT admin_user_level_check CHECK (user_level IN ('ADMIN', 'MANAGER', 'STAFF'));
 
 ALTER TABLE APPLICATION
 ADD CONSTRAINT application_current_stats_check CHECK (approval_status IN ('PENDING', 'APPROVED', 'REJECTED','EXPIRED'));
@@ -75,3 +75,15 @@ INSERT INTO ADMIN
 (username, password, user_level)
 VALUES
 ("hussein", "1234", "ADMIN");
+
+-- Insert a test staff
+INSERT INTO STAFF
+(username, password, user_level, full_name, ic_passport, contact_no, email, staff_id)
+VALUES
+("John", "1234", "STAFF", "John Doe", "010101-01-0101", "011-12345678", "johndoe@gmail.com", "JD001");
+
+-- Insert a test manager
+INSERT INTO MANAGER
+(username, password, user_level, full_name, ic_passport, contact_no, email, manager_id)
+VALUES
+("Bob", "1234", "MANAGER", "Bob Kahn", "020202-02-0202", "019-87654321", "bobkhan@gmail.com", "BK001");
