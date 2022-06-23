@@ -5,11 +5,17 @@
     //?         "NONE" - Do nothing. Session is destroyed in silence
     
     function checkExpiredSession(string $mode = "NONE") {
-        // ? If the session is already expired, expire the session and redirect to login page.
-        if (isset($_SESSION) && isset($_SESSION['expire']) && time() >= $_SESSION['expire'] ) {
-            session_destroy();
+        // If the user is logged in and the 'remember_me' is not checked
+        if (isset($_SESSION) && isset($_SESSION['expire']) ) {
 
-            if ($mode === "REDIRECT") redirectTo('loginform.php?message_danger=Session expired. Please log in again');
+            // If already expire
+            if (time() >= $_SESSION['expire']) {
+                session_destroy();
+                // If mode is set to redirect
+                if ($mode === "REDIRECT") redirectTo('loginform.php?message_danger=Session expired. Please log in again');
+            }
+            // Otherwise, not yet expire - Refresh the expiry time
+            else $_SESSION['expire'] = time() + (60 * 10);
         }
     }
 ?>

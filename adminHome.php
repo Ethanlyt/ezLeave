@@ -2,8 +2,10 @@
     session_start();
 
     include_once('php/session_expiry.php');
+    include_once("php/check_authorize.php");
 
     checkExpiredSession("REDIRECT");
+    checkAuthorizeAccess("ADMIN");
 ?>
 
 
@@ -29,6 +31,8 @@
 
 
     <div class="intro">
+        <?php include_once('php/components/messagebox.php'); ?>
+
         <h3 class="brand-title">
             <i class="lab la-envira"></i>
             EzLeave

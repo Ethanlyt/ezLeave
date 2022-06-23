@@ -2,8 +2,10 @@
     session_start();
 
     include_once('php/session_expiry.php');
+    include_once("php/check_authorize.php");
 
     checkExpiredSession("REDIRECT");
+    checkAuthorizeAccess("MANAGER");
 ?>
 
 

@@ -2,8 +2,12 @@
     session_start();
 
     include_once('php/session_expiry.php');
+    include_once("php/check_authorize.php");
 
     checkExpiredSession("REDIRECT");
+    checkAuthorizeAccess("LOGGEDIN");
+    
+    // TODO: Only admin has 100% access. Manager and Staff can only edit their own info
 ?>
 
 
