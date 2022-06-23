@@ -63,3 +63,29 @@ a {
 
     margin-bottom: 3rem;
 }
+
+
+
+.message {
+    margin: 10px 6px;
+    padding: 10px 15px;
+    text-align: center;
+    font-weight: 300;
+    border-radius: 5px;
+    font-size: 1.75rem;
+}
+
+.message-success {
+    background-color: #02b875;
+    color: white;
+}
+
+.message-danger {
+    background-color: #d9534f;
+    color: white;
+}
+
+.message-warning {
+    background-color: #f0ad4e;
+    color: white;
+}

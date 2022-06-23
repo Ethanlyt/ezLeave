@@ -74,16 +74,16 @@ ADD CONSTRAINT application_current_stats_check CHECK (approval_status IN ('PENDI
 INSERT INTO ADMIN
 (username, password, user_level)
 VALUES
-("hussein", "1234", "ADMIN");
+("hussein", "123456", "ADMIN");
 
 -- Insert a test staff
 INSERT INTO STAFF
 (username, password, user_level, full_name, ic_passport, contact_no, email, staff_id)
 VALUES
-("John", "1234", "STAFF", "John Doe", "010101-01-0101", "011-12345678", "johndoe@gmail.com", "JD001");
+("John", "123456", "STAFF", "John Doe", "010101-01-0101", "011-12345678", "johndoe@gmail.com", "JD001");
 
 -- Insert a test manager
 INSERT INTO MANAGER
 (username, password, user_level, full_name, ic_passport, contact_no, email, manager_id)
 VALUES
-("Bob", "1234", "MANAGER", "Bob Kahn", "020202-02-0202", "019-87654321", "bobkhan@gmail.com", "BK001");
+("Bob", "123456", "MANAGER", "Bob Kahn", "020202-02-0202", "019-87654321", "bobkhan@gmail.com", "BK001");

@@ -1,47 +1,31 @@
+<?php 
+    session_start();
+
+    include_once('php/session_expiry.php');
+
+    checkExpiredSession("REDIRECT");
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Leave Application form</title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include_once('php/components/head.php'); ?>
 
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/calendar.css">
     <link rel="stylesheet" href="css/staffForm.css">
 
     <script src="javascript/staffForm.js"></script>
     <script src="javascript/calendar.js"></script>
-
-    <!-- External -->
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">  
-
-
 </head>
 
-<body>
 
-    <nav class="nav padded-container">
-        <a href="index.html" class="nav-brand">
-            <i class="nav-brand-img lab la-envira"></i>
-            <span class="nav-brand-title">EzLeave</span>
-        </a>
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="adminform.html">AdmiJW</a>
-            </li>
-            <li class="nav-item">
-                <a href="index.html"><i class="las la-sign-out-alt"></i>Log out</a>
-            </li>
-        </ul>
-    </nav>
+<body>
+    <?php include_once("php/components/nav.php"); ?>
 
     <main>
         <h1 class="topic"><i class="las la-file-alt"></i> LEAVE APPLICATION FORM</h1>

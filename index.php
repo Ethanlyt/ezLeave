@@ -1,38 +1,35 @@
+<?php 
+    session_start();
+
+    include_once('php/session_expiry.php');
+
+    checkExpiredSession();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>EzLeave</title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include_once('php/components/head.php'); ?>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/jumbotron.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/dateclock.css">
-
+    <link rel="stylesheet" href="css/jumbotron.css">
 
     <script src="javascript/timeclock.js"></script>
-
-    <!-- Line Awesome -->
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">  
-
 </head>
 
 <body>
-    <!-- Navigation -->
     <?php include_once("php/components/nav.php"); ?>
 
-    <div class="jumbotron">
 
+    <div class="jumbotron">
         <div class="jumbotron_content">
+
+            <?php include_once('php/components/messagebox.php'); ?>
 
             <h3 class="brand-title">
                 <i class="lab la-envira"></i>
@@ -62,7 +59,7 @@
             </div>
             
 
-            <a href="loginform.html" class="button jumbotron_content_button">
+            <a href="loginform.php" class="button jumbotron_content_button">
                 <i class="las la-sign-in-alt"></i> Login
             </a>    
         </div>

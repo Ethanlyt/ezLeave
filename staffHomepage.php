@@ -1,29 +1,29 @@
+<?php 
+    session_start();
+
+    include_once('php/session_expiry.php');
+
+    checkExpiredSession("REDIRECT");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Staff Dashboard</title>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include_once('php/components/head.php'); ?>
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/general.css">
-    <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/dateclock.css">
     <link rel="stylesheet" href="css/staffHomepage.css">
 
-    <!-- JSript -->
     <script src="javascript/timeclock.js"></script>
     <script src="javascript/managerHome.js"></script>
-
-    <!-- External source -->
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
 </head>
+
+
 <body>
 
-    <!-- Navigation -->
     <?php include_once("php/components/nav.php"); ?>
 
     
