@@ -119,7 +119,7 @@
                 <input class="checkbox remember_me" type="checkbox" name="remember_me" id="remember_me">
                 <label for="remember_me" class="checkbox_label">Remember Me</label>
             </div>
-
+            
             <input type="submit" name='login' class="button login_button" id="login_button"/>
 
         </div>

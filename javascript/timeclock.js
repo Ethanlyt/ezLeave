@@ -2,7 +2,7 @@
 const months = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
 ];
-const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Thursday", "Friday", "Saturday"];
+const dayOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -28,6 +28,9 @@ function setTime(day, month, dow, hr, min, sec, ampm, colons) {
     
     day.innerText = now.getDate();
     month.innerText = months[ now.getMonth() ];
+
+    console.log( now.getDay() );
+
     dow.innerText = `(${dayOfWeek[ now.getDay() ]})`;
     hr.innerText = `${(now.getHours() % 12 === 0)? 12: now.getHours() % 12}`.padStart(2, "0");
     min.innerText = `${now.getMinutes()}`.padStart(2, "0");
