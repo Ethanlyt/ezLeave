@@ -53,7 +53,7 @@
         $_SESSION['logged_in'] = true;
         $_SESSION['user'] = $user;
         // * Set session expiry. 10 minutes if not remember me, else forever
-        $_SESSION['expire'] = time() + ( $remember? null: (10 * 60) );
+        $_SESSION['expire'] = $remember? null: time() + (10 * 60);
     }
 ?>
 
