@@ -1,11 +1,40 @@
 <?php 
     session_start();
-
+    include_once('php/db_connect.php');
     include_once('php/session_expiry.php');
     include_once("php/check_authorize.php");
 
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("MANAGER");
+
+    $application_id=$_GET['application'];
+
+    // $sql = 
+    // "SELECT * FROM APPLICATION
+    // WHERE applicant_ID=$applicant_id
+    // ";
+    $sql = 
+    "SELECT APPLICATION.*,STAFF.username 
+    FROM APPLICATION
+    INNER JOIN STAFF ON APPLICATION.applicant_ID=STAFF.user_id
+    WHERE application_id=$application_id
+    ";
+
+    $result = $conn->query($sql);
+
+
+    if ( $result->num_rows === 0 ) return $_GET['message_danger'] = "Error displaying application!";
+    while($row = $result->fetch_assoc()) {
+        $application_id=$application_id;
+        $applicaNT_NAME=$row['username'];
+        $applicant_id=$row['applicant_ID'];
+        $date_submitted=$row['date_submitted'];
+        $approval_manager=$row['application_id'];//session manager
+        $approval_time=$row['application_id'];//session time
+        $last_modified=$row['last_modify'];
+    }
+
+
 ?>
 
 
@@ -41,7 +70,7 @@
                 <table class="leave_detail">
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Application ID: </th>
-                        <td class="content">IT101023</td>
+                        <td class="content">fgdfg</td>
                     </tr>
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Applicant's Name: </th>
