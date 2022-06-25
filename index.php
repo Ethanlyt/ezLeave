@@ -4,6 +4,15 @@
     include_once('php/session_expiry.php');
 
     checkExpiredSession();
+
+
+
+    $homepage = "loginform.php";
+    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+        if ($_SESSION['user']['user_level'] === 'ADMIN') $homepage = 'adminHome.php';
+        else if ($_SESSION['user']['user_level'] === 'MANAGER') $homepage = 'managerHome.php';
+        else if ($_SESSION['user']['user_level'] === 'STAFF') $homepage = 'staffHomepage.php'; 
+    }
 ?>
 
 
@@ -58,10 +67,18 @@
                 </div>
             </div>
             
-
-            <a href="loginform.php" class="button jumbotron_content_button">
-                <i class="las la-sign-in-alt"></i> Login
-            </a>    
+            <?php
+                if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) echo "
+                <a href='$homepage' class='button jumbotron_content_button'>
+                    <i class='las la-home'></i> Home
+                </a>
+                ";
+                else echo "
+                <a href='$homepage' class='button jumbotron_content_button'>
+                    <i class='las la-sign-in-alt'></i> Login
+                </a>
+                ";
+            ?>
         </div>
     </div>
 

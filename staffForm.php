@@ -51,6 +51,7 @@
             <div class="option">
                 <input name="submit" type="submit" value="Submit" class="button button_form">
                 <input type="reset" value="Clear" class="button button_form">
+                <input type="submit" value="Delete" class="button button_form">
             </div>
         </form>
     </main>

@@ -23,7 +23,7 @@ body{
     margin: 0 auto 1em auto;
     padding: 1em 0;
     width: 60%;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.75);
     border-radius: 20px;
 
 }
@@ -219,12 +219,13 @@ button:active{
 
 .dropdown-content button {
     padding: 1em 2em;
+    width: 100%;
     display: block;
     transition: all .3s ease;
     font-size: 1.5rem;
 }
 
-.dropdown-content button:is(:hover, :focus) {
+.dropdown-content button:is(:hover, :focus,.selected) {
     background-color: #d7d7d7;
 
 }

@@ -34,7 +34,7 @@ body {
 
 .container_nav {
     display: flex;
-    justify-content: space-between;
+
 
     padding: 2rem 0;
     width: 90%;
@@ -43,6 +43,8 @@ body {
 }
 
 .container_nav h2 {
+    flex: 1;
+    text-align: left;
     font-size: 4rem;
     font-weight: 300;
 }
@@ -63,7 +65,14 @@ body {
     margin: 2rem 0;
 }
 
-
+.no_container_item {
+    display: grid;
+    padding: 1em;
+    gap: 1em;
+    justify-items: center;
+    margin: 2rem 0;
+    
+}
 
 .card {
     padding: 2rem;
@@ -161,4 +170,26 @@ body {
 
 .dropdown:is(:hover, :focus) .dropbtn {
     background-color: #b3b3b3;
+}
+
+
+/* Filter checkbox */
+.checkbox{
+    cursor: pointer;
+    padding: 1em 2em;
+    transition: all .3s ease;
+    font-size: 1.5rem;
+    display: none;  
+}
+
+label{
+    cursor: pointer;
+    padding: 1em 2em;
+    font-size: 1.5rem;
+    
+}
+
+
+.checkbox:checked + label{
+    background-color: #d7d7d7;
 }

@@ -164,3 +164,29 @@ body {
 .dropdown:is(:hover, :focus) .dropbtn, .addbtn:is(:hover, :focus) {
     background-color: #b3b3b3;
 }
+
+.dropdown-content label:is(:hover, :focus) {
+    background-color: #d7d7d7;
+}
+
+/* Filter checkbox */
+.checkbox{
+    cursor: pointer;
+    padding: 1em 2em;
+    transition: all .3s ease;
+    font-size: 1.5rem;
+    display: none;  
+}
+
+label{
+    cursor: pointer;
+    padding: 1em 2em;
+    font-size: 1.5rem;
+    
+}
+
+
+.checkbox:checked + label{
+    background-color: #d7d7d7;
+}
+
