@@ -20,7 +20,7 @@
                 // If the user is admin, and presses on the username, redirect to admin form but for new insert only.
                 echo "
                 <li class='nav-item'>
-                    <a href='adminform.php" . ($user_level === 'ADMIN'? '': "?user_id=$user_id&user_level=$user_level") . "'>$username</a>
+                    <a href='adminform.php" . ($user_level === 'ADMIN'? '': "?id=$user_id&user_level=$user_level") . "'>$username</a>
                 </li>
                 ";
                 if ($user_level === 'STAFF') echo '
