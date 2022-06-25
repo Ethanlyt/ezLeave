@@ -168,6 +168,7 @@ body {
 .dropdown-content label:is(:hover, :focus) {
     background-color: #d7d7d7;
 }
+
 /* Filter checkbox */
 .checkbox{
     cursor: pointer;
