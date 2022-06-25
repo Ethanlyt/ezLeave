@@ -7,14 +7,6 @@
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("MANAGER");
 
-    //Check Log in
-    $is_signed_in = isset($_SESSION) && isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
-    if (!$is_signed_in) return;
-
-
-    $username = $_SESSION['user']['username'];
-    $user_id = $_SESSION['user']['user_id'];
-
 
     $sql = 
         'SELECT APPLICATION.application_id, APPLICATION.date_submitted, APPLICATION.approval_status, STAFF.username 
@@ -91,7 +83,7 @@
             <div class="dropdown">
                 <button class="button dropbtn"><i class="las la-sort"></i></button>
                 <div class="dropdown-content">
-                    <button class="button"><i class="las la-calendar-plus"></i> Date added</button>
+                    <button class="button"><i class="las la-calendar-plus"></i> Date added (Ascending)</button>
                     <button class="button"><i class="las la-calendar-day"></i> Leave date</button>
                 </div>
             </div>
