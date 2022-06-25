@@ -26,14 +26,14 @@
     if ( $result->num_rows === 0 ) return $_GET['message_danger'] = "Error displaying application!";
     while($row = $result->fetch_assoc()) {
         $application_id=$application_id;
-        $applicaNT_NAME=$row['username'];
+        $applicaNT_name=$row['username'];
         $applicant_id=$row['applicant_ID'];
         $date_submitted=$row['date_submitted'];
         $approval_manager=$row['application_id'];//session manager
         $approval_time=$row['application_id'];//session time
         $last_modified=$row['last_modify'];
     }
-
+    
 
 ?>
 

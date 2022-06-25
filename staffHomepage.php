@@ -7,8 +7,6 @@
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("STAFF");
 
-<<<<<<< Updated upstream
-=======
     
     //Check Log in
     $is_signed_in = isset($_SESSION) && isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
@@ -26,7 +24,6 @@
     $result = $conn->query($sql);
 
     if ($result->num_rows === 0) $_GET['message_success'] = 'Database search successfully. You have not apply leave yet!';
->>>>>>> Stashed changes
 ?>
 
 

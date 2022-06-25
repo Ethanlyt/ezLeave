@@ -31,7 +31,7 @@ CREATE TABLE MANAGER(
     staff_id VARCHAR(10) NOT NULL
 );
 
-
+application_id,username,applicant_ID,date_submitted,username,
 CREATE TABLE APPLICATION(
     application_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     applicant_ID INT NOT NULL,
