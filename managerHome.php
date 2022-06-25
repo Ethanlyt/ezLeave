@@ -1,11 +1,31 @@
 <?php 
     session_start();
-
+    include_once('php/db_connect.php');
     include_once('php/session_expiry.php');
     include_once("php/check_authorize.php");
 
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("MANAGER");
+
+    //Check Log in
+    $is_signed_in = isset($_SESSION) && isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+    if (!$is_signed_in) return;
+
+
+    $username = $_SESSION['user']['username'];
+    $user_id = $_SESSION['user']['user_id'];
+
+
+    $sql = 
+        'SELECT APPLICATION.application_id, APPLICATION.date_submitted, APPLICATION.approval_status, STAFF.username 
+        FROM APPLICATION 
+        INNER JOIN STAFF ON APPLICATION.applicant_ID=STAFF.user_id';
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows === 0) $_GET['message_success'] = 'Database search successfully. No application found';
+    
+    
 ?>
 
 
@@ -29,16 +49,17 @@
 <body>
 
     <?php include_once("php/components/nav.php"); ?>
-
+    
     
     <div class="intro">
-        <?php include_once('php/components/messagebox.php'); ?>
+
 
         <h3 class="brand-title">
             <i class="lab la-envira"></i>
             EzLeave
         </h3>
-            
+
+       
         <p class="brand-desc">
             Apply leaves with ease
         </p>
@@ -59,11 +80,13 @@
         </div>
     </div>
 
-
+    
 
     <main class="container">
+    
         <div class="container_nav">
             <h2><i class="las la-file-invoice"></i> Leave Applications</h2> 
+            
 
             <div class="dropdown">
                 <button class="button dropbtn"><i class="las la-sort"></i></button>
@@ -94,24 +117,14 @@
         
         <hr class="line">
 
+        <?php include_once('php/components/messagebox.php'); ?>
+
         <div class="container_item">
-            <?php include_once("php/components/application_card.php") ?>
-            <?php include_once('php/components/messagebox.php'); ?>
-            
-            <!-- <a href="#" class="button card application-card">
-                <h4 class="card-title application-title">Leave #HS102834</h4>
 
-                <hr class="card-divider">
 
-                <i class="card-icon las la-user"></i>
-                <p class="card-value application-name">Soh Jun Wei</p>
+            <?php include_once("php/components/application_card.php"); ?>
 
-                <i class="card-icon las la-clock"></i>
-                <p class="card-value application-time">2022-5-28 10:30:11 A.M.</p>
 
-                <i class="card-icon las la-check-circle"></i>
-                <p class="card-value application-status status-pending">Pending</p>
-            </a> -->
 
         </div>
     </main>

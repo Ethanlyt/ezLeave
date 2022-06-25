@@ -1,11 +1,29 @@
 <?php 
     session_start();
-
+    include_once('php/db_connect.php');
     include_once('php/session_expiry.php');
     include_once("php/check_authorize.php");
 
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("STAFF");
+
+    
+    //Check Log in
+    $is_signed_in = isset($_SESSION) && isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+    if (!$is_signed_in) return;
+
+
+    $username = $_SESSION['user']['username'];
+    $user_id = $_SESSION['user']['user_id'];
+
+
+    $sql = 
+    "SELECT application_id, date_submitted, approval_status FROM APPLICATION
+    WHERE applicant_ID = '$user_id'";
+
+    $result = $conn->query($sql);
+
+    if ($result->num_rows === 0) $_GET['message_success'] = 'Database search successfully. You have not apply leave yet!';
 ?>
 
 
@@ -30,8 +48,7 @@
 
     
     <div class="intro">
-        <?php include_once('php/components/messagebox.php'); ?>
-
+        
         <h3 class="brand-title">
             <i class="lab la-envira"></i>
             EzLeave
@@ -60,7 +77,9 @@
 
     <main class="container">
         <div class="container_nav">
+        
             <h2><i class="las la-file-invoice"></i> My Applications</h2> 
+            
 
             <a href="staffForm.php" class="button addbtn"><i class="las la-plus-circle"></i></a>
             
@@ -91,7 +110,12 @@
             
         </div>
         
-        <div class="line"><hr></div>
+        <div class="line">
+            <hr>
+            <?php include_once('php/components/messagebox.php'); ?>
+        </div>
+        
+
         <?php include_once("php/components/application_card.php"); ?>
         
     </main>

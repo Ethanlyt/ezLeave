@@ -81,7 +81,7 @@ hr {
     transition: all .3s ease;
 }
 
-.button_form:is(:hover, :focus) {
+.button_form:is(:hover, :active) {
     background-color: rgb(14, 78, 167);
 }
 

@@ -31,18 +31,18 @@ CREATE TABLE MANAGER(
     staff_id VARCHAR(10) NOT NULL
 );
 
-
 CREATE TABLE APPLICATION(
     application_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     applicant_ID INT NOT NULL,
     approval_manager_ID INT,
 
-    date_submitted DATETIME NOT NULL,
+    date_submitted DATETIME NOT NULL, 
     leave_date DATE NOT NULL,
     leave_reason VARCHAR(255) NOT NULL,
     approval_status VARCHAR(255) NOT NULL,
     
-    last_modify DATETIME  ,
+    approval_time DATETIME,
+    last_modify DATETIME,
     manager_remark VARCHAR(255)
 );
 

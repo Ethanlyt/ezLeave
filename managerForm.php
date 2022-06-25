@@ -1,11 +1,47 @@
 <?php 
     session_start();
-
+    include_once('php/db_connect.php');
     include_once('php/session_expiry.php');
     include_once("php/check_authorize.php");
 
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("MANAGER");
+
+    $application_id=$_GET['application'];
+
+    $sql = 
+    "SELECT APPLICATION.*,STAFF.username AS applicant_name
+    FROM APPLICATION
+    INNER JOIN STAFF ON APPLICATION.applicant_ID=STAFF.user_id
+    WHERE application_id=$application_id
+    ";
+
+
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    // $_SESSION['user']['user_level']
+
+    // if ($row['manager_name']===null) $approval_manager="NA";
+
+
+    if ( $result->num_rows === 0 ) $_GET['message_danger'] = "Error displaying application!";
+    while($row) {
+        $application_id=$application_id;
+        $applicant_name=$row['applicant_name'];
+        $applicant_id=$row['applicant_ID'];
+        $date_submitted=$row['date_submitted'];
+        // $approval_manager=$row['manager_name'];//session manager
+        // $approval_time=$row['approval_time'];//session time
+        $last_modified=$row['last_modify'];
+        $leave_date=$row['leave_date'];
+        $leave_reason=$row['leave_reason'];
+    }
+    
+    // application_id,username,applicant_ID,date_submitted,username,approval_time,
+    // last_modify,leave_reason,
+    // manager_remark
+    // null manager_name
+    echo $applicant_name;
 ?>
 
 
@@ -41,7 +77,7 @@
                 <table class="leave_detail">
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Application ID: </th>
-                        <td class="content">IT101023</td>
+                        <td class="content">fgdfg</td>
                     </tr>
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Applicant's Name: </th>
