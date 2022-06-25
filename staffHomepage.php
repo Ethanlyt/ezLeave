@@ -6,6 +6,7 @@
 
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("STAFF");
+
 ?>
 
 
@@ -62,7 +63,7 @@
         <div class="container_nav">
             <h2><i class="las la-file-invoice"></i> My Applications</h2> 
 
-            <a href="staffForm.html" class="button addbtn"><i class="las la-plus-circle"></i></a>
+            <a href="staffForm.php" class="button addbtn"><i class="las la-plus-circle"></i></a>
             <div class="dropdown">
                 <button class="button dropbtn"><i class="las la-filter"></i></button>
                 <div class="dropdown-content">
