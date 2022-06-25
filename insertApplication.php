@@ -17,8 +17,8 @@
         $application_reason = $_GET['leave_reason'];
         $applicaiton_status = 'Pending';
     
-        $sql="INSERT INTO APPLICATION(applicant_ID,date_submitted,leave_date,leave_reason,approval_status)
-        VALUES('$applicant_id','$submission_date','$application_date','$application_reason','$applicaiton_status')";
+        $sql="INSERT INTO APPLICATION(applicant_ID,date_submitted,leave_date,leave_reason,approval_status,last_modify)
+        VALUES('$applicant_id','$submission_date','$application_date','$application_reason','$applicaiton_status',NOW())";
 
         if($conn->query($sql)===TRUE){
             echo "Application submitted.";
