@@ -206,7 +206,7 @@
                             <td class=' item_id item_id_first'>{$user['staff_id']}</td>
                             <td class=' item_level item_level_first'>{$user['user_level']}</td>
                             <td class='item_id_first edit_icon'>
-                                <a href='adminform.php?id={$user['user_id']}'><i class='las la-user-edit'></i></a>
+                                <a href='adminform.php?id={$user['user_id']}&user_level={$user['user_level']}'><i class='las la-user-edit'></i></a>
                             </td>
                         </tr>
                         ";
