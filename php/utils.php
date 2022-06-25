@@ -21,7 +21,7 @@ function validateUsername(string $username) {
 function validateFullName(string $fullname) {
     if (strlen($fullname) === 0) return "Full name cannot be blank!";
     if (strlen($fullname) > 100) return "Full name cannot exceed 100 characters!";
-    if (!ctype_alpha($fullname)) return "Full name can only consist of alphabetic characters";
+    if (preg_match('/[^a-z ]/i', $fullname)) return "Full name can only consist of alphabetic characters";
 
     return true;
 }
@@ -37,7 +37,7 @@ function validateIC(string $ic) {
 function validateStaffID(string $id) {
     if (strlen($id) === 0) return "Staff ID cannot be blank!";
     if (strlen($id) > 10) return "Staff ID cannot exceed 10 characters!";
-    if (preg_match('/^[A-Z]{2}\d+$/i', $id)) return "Staff ID must be prefixed with 2 alphabetic characters followed by 1 or more digits. Eg: AB123";
+    if (!preg_match('/^[A-Z]{2}\d+$/', $id)) return "Staff ID must be prefixed with 2 alphabetic characters followed by 1 or more digits. Eg: AB123";
 
     return true;
 }
