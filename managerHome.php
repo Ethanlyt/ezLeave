@@ -66,13 +66,23 @@
             <h2><i class="las la-file-invoice"></i> Leave Applications</h2> 
 
             <div class="dropdown">
-                <button class="button dropbtn"><i class="las la-filter"></i></button>
+                <button class="button dropbtn"><i class="las la-sort"></i></button>
                 <div class="dropdown-content">
-                    <button class="button"><i class="las la-sort-alpha-down"></i> Alphabatic</button>
                     <button class="button"><i class="las la-calendar-plus"></i> Date added</button>
                     <button class="button"><i class="las la-calendar-day"></i> Leave date</button>
                 </div>
             </div>
+
+            <div class="dropdown">
+                <button class="button dropbtn"><i class="las la-filter"></i></button>
+                <div class="dropdown-content">
+                    <button class="button"><i class="las la-calendar-plus"></i> Pending</button>
+                    <button class="button"><i class="las la-calendar-day"></i> Verified</button>
+                    <button class="button"><i class="las la-calendar-day"></i> Rejected</button>
+
+                </div>
+            </div>
+
         </div>
         
         <hr class="line">
