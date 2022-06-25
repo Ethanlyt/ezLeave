@@ -28,7 +28,7 @@ CREATE TABLE MANAGER(
     ic_passport VARCHAR(30) NOT NULL,
     contact_no VARCHAR(20) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    manager_id VARCHAR(10) NOT NULL
+    staff_id VARCHAR(10) NOT NULL
 );
 
 
@@ -84,6 +84,6 @@ VALUES
 
 -- Insert a test manager
 INSERT INTO MANAGER
-(username, password, user_level, full_name, ic_passport, contact_no, email, manager_id)
+(username, password, user_level, full_name, ic_passport, contact_no, email, staff_id)
 VALUES
 ("Bob", "123456", "MANAGER", "Bob Kahn", "020202-02-0202", "019-87654321", "bobkhan@gmail.com", "BK001");
