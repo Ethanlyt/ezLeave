@@ -15,7 +15,7 @@
                 if ($mode === "REDIRECT") redirectTo('loginform.php?message_danger=Session expired. Please log in again');
             }
             // Otherwise, not yet expire - Refresh the expiry time
-            else $_SESSION['expire'] = time() + (60 * 10);
+            else $_SESSION['expire'] = time() + (10 * 60);
         }
     }
 ?>

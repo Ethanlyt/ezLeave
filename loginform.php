@@ -53,7 +53,7 @@
         $_SESSION['logged_in'] = true;
         $_SESSION['user'] = $user;
         // * Set session expiry. 10 minutes if not remember me, else forever
-        $_SESSION['expire'] = time() + ( $remember? null: (10 * 60) );
+        $_SESSION['expire'] = $remember? null: time() + (10 * 60);
     }
 ?>
 
@@ -119,7 +119,7 @@
                 <input class="checkbox remember_me" type="checkbox" name="remember_me" id="remember_me">
                 <label for="remember_me" class="checkbox_label">Remember Me</label>
             </div>
-
+            
             <input type="submit" name='login' class="button login_button" id="login_button"/>
 
         </div>
