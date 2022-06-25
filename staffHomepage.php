@@ -115,9 +115,9 @@
             <?php include_once('php/components/messagebox.php'); ?>
         </div>
         
-
+        <div class="container_item">
         <?php include_once("php/components/application_card.php"); ?>
-        
+        </div>
     </main>
 
 
