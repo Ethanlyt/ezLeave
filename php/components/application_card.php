@@ -1,4 +1,5 @@
 <!-- This component should display the applicationID, applicant name, application date and application status -->
+<!-- Display application card based  -->
 <?php
 
 include_once('php/db_connect.php');
@@ -42,14 +43,9 @@ include_once('php/db_connect.php');
             }
             else {
               echo 
-              "<div class='no_container_item'>
-              <div class='container_item' >
-                  <a href='#' class='button card application-card' style='background-color: rgb(247, 145, 122);opacity:0.8;'>
-                      <h4 class='card-title application-title'>No Application record found...</h4>
-                      <hr class='card-divider'>
-                  </a>
-              </div>
-          </div>";
+              "<div class='container_item'>"
+              .$_GET['message_warning'] = 'No users found.'.
+            "</div>";
             }
         }
         // else if userlevel is manager, display all application
@@ -89,7 +85,7 @@ include_once('php/db_connect.php');
                 echo 
                 "<div class='no_container_item'>
                     <div class='container_item' >
-                        <a href='#' class='button card application-card' style='background-color: rgb(247, 145, 122);opacity:0.8;'>
+                        <a href='#' class='button card application-card' style='background-color: #414c6b;opacity:0.5;'>
                             <h4 class='card-title application-title'>No Application record found...</h4>
                             <hr class='card-divider'>
                         </a>

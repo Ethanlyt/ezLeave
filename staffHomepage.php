@@ -92,69 +92,8 @@
         </div>
         
         <div class="line"><hr></div>
-
-        <div class="container_item">
-
-            <a href="#" class="button card application-card">
-                <h4 class="card-title application-title">Leave #IT101024</h4>
-
-                <hr class="card-divider">
-
-                <i class="card-icon las la-user"></i>
-                <p class="card-value application-name">Ethan Leong Yi Thian</p>
-
-                <i class="card-icon las la-clock"></i>
-                <p class="card-value application-time">2022-4-19 12:32:24 A.M.</p>
-
-                <i class="card-icon las la-check-circle"></i>
-                <p class="card-value application-status status-pending">Pending</p>
-            </a>
-
-            <a href="#" class="button card application-card">
-                <h4 class="card-title application-title">Leave #IT101023</h4>
-
-                <hr class="card-divider">
-
-                <i class="card-icon las la-user"></i>
-                <p class="card-value application-name">Ethan Leong Yi Thian</p>
-
-                <i class="card-icon las la-clock"></i>
-                <p class="card-value application-time">2022-4-18 12:32:24 A.M.</p>
-
-                <i class="card-icon las la-check-circle"></i>
-                <p class="card-value application-status status-verified">Verified</p>
-            </a>
-
-            <a href="#" class="button card application-card">
-                <h4 class="card-title application-title">Leave #IT101022</h4>
-
-                <hr class="card-divider">
-
-                <i class="card-icon las la-user"></i>
-                <p class="card-value application-name">Ethan Leong Yi Thian</p>
-
-                <i class="card-icon las la-clock"></i>
-                <p class="card-value application-time">2022-4-18 12:32:24 A.M.</p>
-
-                <i class="card-icon las la-check-circle"></i>
-                <p class="card-value application-status status-rejected">Rejected</p>
-            </a>
-
-            <a href="#" class="button card application-card">
-                <h4 class="card-title application-title">Leave #IT101022</h4>
-
-                <hr class="card-divider">
-
-                <i class="card-icon las la-user"></i>
-                <p class="card-value application-name">Ethan Leong Yi Thian</p>
-
-                <i class="card-icon las la-clock"></i>
-                <p class="card-value application-time">2022-3-18 12:32:24 A.M.</p>
-
-                <i class="card-icon las la-check-circle"></i>
-                <p class="card-value application-status status-expired">Expired</p>
-            </a>
-        </div>
+        <?php include_once("php/components/application_card.php"); ?>
+        
     </main>
 
 

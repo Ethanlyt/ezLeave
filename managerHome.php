@@ -93,9 +93,10 @@
         </div>
         
         <hr class="line">
-        <?php include_once("php/components/application_card.php"); ?>
-        
-            
+
+        <div class="container_item">
+            <?php include_once("php/components/application_card.php") ?>
+            <?php include_once('php/components/messagebox.php'); ?>
             
             <!-- <a href="#" class="button card application-card">
                 <h4 class="card-title application-title">Leave #HS102834</h4>
