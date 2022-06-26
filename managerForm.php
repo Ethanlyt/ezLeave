@@ -9,8 +9,8 @@
     checkAuthorizeAccess("MANAGER");
 
     $application_id=$_GET['application'];
-    // applicant_ID,APPLICATION.applicant_ID,APPLICATION.date_submitted,
-    // APPLICATION.last_modify,APPLICATION.leave_date,APPLICATION.leave_reason,
+    // , MANAGER.username AS manager_name
+    // INNER JOIN MANAGER ON APPLICATION.approval_manager_ID=MANAGER.user_id
     $sql =  
     "SELECT APPLICATION.*, STAFF.username AS applicant_name,STAFF.staff_id
     FROM APPLICATION
@@ -18,9 +18,8 @@
     WHERE application_id=$application_id
     ";
 
-
     $result = $conn->query($sql);
-    
+
 
     if ( $result->num_rows === 0 ) redirectTo("managerHome.php?message_danger=Error displaying application");
     else{
@@ -32,10 +31,19 @@
         $last_modified=$application['last_modify'];
         $leave_date=$application['leave_date'];
         $leave_reason=$application['leave_reason'];
-        
-        // $approval_manager=$row['manager_name'];//session manager
-        // $approval_time=$row['approval_time'];//session time
+
+        $approval_manager="N/A";
+        $approval_time="N/A";
+
+        if ($application['approval_manager_ID'] !== null){
+            // query here
+        }
+       
+        if ($application['approval_time'] !== null){
+            // query here
+        }
     }
+
 
 ?>
 
