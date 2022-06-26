@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include_once('php/db_connect.php');
+    include_once('php/utils.php');
     include_once('php/session_expiry.php');
     include_once("php/check_authorize.php");
 
@@ -8,13 +9,10 @@
     checkAuthorizeAccess("MANAGER");
 
     $application_id=$_GET['application'];
-
-    // $sql = 
-    // "SELECT * FROM APPLICATION
-    // WHERE applicant_ID=$applicant_id
-    // ";
-    $sql = 
-    "SELECT APPLICATION.*,STAFF.username 
+    // , MANAGER.username AS manager_name
+    // INNER JOIN MANAGER ON APPLICATION.approval_manager_ID=MANAGER.user_id
+    $sql =  
+    "SELECT APPLICATION.*, STAFF.username AS applicant_name,STAFF.staff_id
     FROM APPLICATION
     INNER JOIN STAFF ON APPLICATION.applicant_ID=STAFF.user_id
     WHERE application_id=$application_id
@@ -23,17 +21,29 @@
     $result = $conn->query($sql);
 
 
-    if ( $result->num_rows === 0 ) return $_GET['message_danger'] = "Error displaying application!";
-    while($row = $result->fetch_assoc()) {
-        $application_id=$application_id;
-        $applicaNT_name=$row['username'];
-        $applicant_id=$row['applicant_ID'];
-        $date_submitted=$row['date_submitted'];
-        $approval_manager=$row['application_id'];//session manager
-        $approval_time=$row['application_id'];//session time
-        $last_modified=$row['last_modify'];
+    if ( $result->num_rows === 0 ) redirectTo("managerHome.php?message_danger=Error displaying application");
+    else{
+        $application=$result->fetch_assoc();
+        $application_ID=$application_id;
+        $applicant_name=$application['applicant_name'];
+        $applicant_id=$application['staff_id'];
+        $date_submitted=$application['date_submitted'];
+        $last_modified=$application['last_modify'];
+        $leave_date=$application['leave_date'];
+        $leave_reason=$application['leave_reason'];
+
+        $approval_manager="N/A";
+        $approval_time="N/A";
+
+        if ($application['approval_manager_ID'] !== null){
+            // query here
+        }
+       
+        if ($application['approval_time'] !== null){
+            // query here
+        }
     }
-    
+
 
 ?>
 
@@ -70,31 +80,32 @@
                 <table class="leave_detail">
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Application ID: </th>
-                        <td class="content">fgdfg</td>
+                        <td class="content"><?php echo $application_ID?>
+                         </td>
                     </tr>
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Applicant's Name: </th>
-                        <td class="content">Ethan Leong Yi Thian</td>
+                        <td class="content"><?php echo $applicant_name?></td>
                     </tr>
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Applicant's ID: </th>
-                        <td class="content">HS010402</td>
+                        <td class="content"><?php echo $applicant_id?></td>
                     </tr>
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Date submitted: </th>
-                        <td class="content">2022-3-23 10:00:00A.M.</td>
+                        <td class="content"><?php echo $date_submitted?></td>
                     </tr>
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Approval manager: </th>
-                        <td class="content">Soh Jun Wei</td>
+                        <td class="content">NA</td>
                     </tr>
                     <tr>
                         <th class="leave_detail_parameter_cont">Approval time: </th>
-                        <td class="content">2022-4-1 10:00:00A.M.</td>
+                        <td class="content">NA</td>
                     </tr>
                     <tr>
                         <th class="leave_detail_parameter_cont">Last modified: </th>
-                        <td class="content">2022-4-3 10:00:00A.M.</td>
+                        <td class="content"><?php echo $last_modified?></td>
                     </tr>
                 </table>
 
@@ -107,7 +118,7 @@
                 <div class="form_parameter"><i class="las la-question"></i> Applicant's leave reason : </div>
                 <hr>
                 <div class="text"> 
-                    <textarea disabled name="leave reason" from="view form" class="leave_reason">I have to attend my friend's wedding on that day.</textarea> 
+                    <textarea disabled name="leave reason" from="view form" class="leave_reason"><?php echo $leave_reason?></textarea> 
                 </div>
 
                 <div class="form_parameter">Remark of the leave application :</div>
