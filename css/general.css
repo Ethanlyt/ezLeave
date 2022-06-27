@@ -258,7 +258,7 @@ a {
 
 
 .status-pending { color: var(--blue3); }
-.status-verified { color: rgb(8, 181, 8); }
+.status-approved { color: rgb(8, 181, 8); }
 .status-rejected { color: rgb(233, 45, 45); }
 .status-expired { color: grey; }
 

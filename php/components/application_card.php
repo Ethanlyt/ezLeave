@@ -13,7 +13,7 @@
 
     $status = $row["approval_status"];
     if ($status === 'PENDING') $status_cls = 'status-pending';
-    else if ($status === 'VERIFIED') $status_cls = 'status-verified';
+    else if ($status === 'APPROVED') $status_cls = 'status-approved';
     else if ($status === 'REJECTED') $status_cls = 'status-rejected';
     else if ($status === 'EXPIRED') $status_cls = 'status-expired';
     else $status_cls = '';

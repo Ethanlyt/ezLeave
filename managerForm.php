@@ -18,9 +18,25 @@
 
     //* Handle managerForm Approval and Rejections
     if (isset($_POST['APPROVED']) || isset($_POST['REJECTED'])) {
-        echo "APPROVAL";
+        $new_status = isset($_POST['APPROVED'])? 'APPROVED': "REJECTED";
+
+        $query = "
+            UPDATE application
+            SET 
+                last_modify = NOW(),
+                manager_remark = ?,
+                approval_manager_ID = ?,
+                approval_status = ?
+            WHERE
+                application_id = ?
+                AND approval_status = 'PENDING'
+        ";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('ssss', $_POST['remark'], $_SESSION['user']['user_id'], $new_status, $application_id);
+        
+        if ( $stmt->execute() && $stmt->affected_rows === 1 ) $_GET['message_success'] = "Successfully " . strtolower($new_status) . " the application";
+        else $_GET['message_danger'] = "Failed to " . strtolower($new_status) . " the application. Please contact adminstrator";
     }
-    echo $approval_manager;
 
 
     //* Retrieve the application data
@@ -95,6 +111,9 @@
         <h1 class="topic"><i class="las la-file-alt"></i> STAFF LEAVE APPLICATION</h1>
 
         <div class="calendar_area">
+
+            <?php include_once('php/components/messagebox.php'); ?>
+
             <form name="view form" method="POST" action="managerForm.php?application=<?php echo $application_id; ?>">
 
                 <div class="form_parameter"><i class="las la-info"></i> Application Info: </div>
@@ -148,19 +167,17 @@
                 <div class="form_parameter">Remark of the leave application :</div>
                 <hr>
                 <div>
-                    <textarea name="remark" from="view form" class="leave_reason" placeholder="Remarks..." <?php echo ($is_pending)? '': 'disabled'; ?>>
-                        <?php echo $manager_remark; ?>
-                    </textarea>
+                    <textarea name="remark" from="view form" class="leave_reason" placeholder="Remarks..." <?php echo ($is_pending)? '': 'disabled'; ?>><?php echo $manager_remark; ?></textarea>
                 </div>
                 <hr>
 
                 <div class="option">
                     <?php
                         if ($is_pending) echo "
-                        <button type='submit' value='APPROVED' class='button button_form'>
+                        <button type='submit' name='APPROVED' class='button button_form'>
                             <i class='las la-check-circle'></i> Approve
                         </button>
-                        <button type='submit' value='REJECTED' class='button button_form'>
+                        <button type='submit' name='REJECTED' class='button button_form'>
                             <i class='las la-times-circle'></i> Reject
                         </button>
                         ";
