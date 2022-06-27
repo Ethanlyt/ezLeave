@@ -50,9 +50,10 @@
  
         $sql=
         "UPDATE APPLICATION
-        SET last_modify=NOW(), leave_reason='$_POST[leave_reason]','leave_reason=$_POST[date]';
-        WHERE application_id=$delete_this_application";
+        SET last_modify=NOW(), leave_reason='$_POST[leave_reason]',leave_date='$_POST[date]'
+        WHERE application_id=$update_this_application";
 
+        echo $update_this_application;
 
         if($conn->query($sql)===TRUE){
             echo " Application updated";
