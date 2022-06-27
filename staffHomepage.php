@@ -115,8 +115,10 @@
             <?php include_once('php/components/messagebox.php'); ?>
         </div>
         
-
-        <?php include_once("php/components/application_card.php"); ?>
+        <div class="container_item">
+            <?php include_once("php/components/application_card.php"); ?>
+        </div>
+        
         
     </main>
 
