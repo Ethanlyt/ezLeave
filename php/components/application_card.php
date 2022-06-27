@@ -25,11 +25,14 @@
 
     <hr class='card-divider'>
     
+    <?php if (isset($row['username'])) echo "
     <div class='card-label'>
         <i class='card-icon las la-user'></i>
         Applicant
     </div>
-    <p class='card-value application-name'><?php echo $row["username"]; ?></p>
+    <p class='card-value application-name'>{$row["username"]}</p>
+    "; 
+    ?>
 
     <div class='card-label'>
         <i class='card-icon las la-clock'></i>
