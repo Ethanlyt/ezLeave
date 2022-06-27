@@ -116,8 +116,10 @@
         </div>
         
         <div class="container_item">
-        <?php include_once("php/components/application_card.php"); ?>
+            <?php include_once("php/components/application_card.php"); ?>
         </div>
+        
+        
     </main>
 
 
