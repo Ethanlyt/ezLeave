@@ -4,9 +4,11 @@
     include_once('php/utils.php');
     include_once('php/session_expiry.php');
     include_once("php/check_authorize.php");
+    include_once("php/update_expired_application.php");
 
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("MANAGER");
+    updateExpiredApplication($conn);
 
     $application_id=$_GET['application'];
     // , MANAGER.username AS manager_name
