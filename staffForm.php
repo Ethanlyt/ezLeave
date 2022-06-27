@@ -58,9 +58,8 @@
     <main>
         <h1 class="topic"><i class="las la-file-alt"></i> LEAVE APPLICATION FORM</h1>
 
-        <form name="leave_form" method="GET" action="insertApplication.php?<?php $application=$application_id?>" class="calendar_area">
+        <form name="leave_form" method="POST" action="insertApplication.php" class="calendar_area">
         
-      
             <label for="calendar-input" class="form_parameter">
                 <i class="las la-calendar"></i> Calendar (Choose a date to apply leave): 
             </label>
@@ -71,14 +70,27 @@
             
             <label class="form_parameter"><i class="las la-question-circle"></i> Leave reason : </label>
             <hr>
-            <textarea name="leave_reason" class="leave_reason" placeholder="Write your leave reason here..."><?php if(isset($_GET['application'])) echo "$leave_reason";?></textarea>
+            <textarea name="leave_reason" class="leave_reason" placeholder="Write your leave reason here..."><?php if(isset($_GET['application'])) echo $leave_reason?></textarea>
             
             <hr>
 
+            <input type="hidden" name="delete_application" value=<?php if(isset($_GET['application'])) echo $application_ID; ?>>
             <div class="option">
-                <input name="submit" type="submit" value="Submit" class="button button_form">
+                <?php 
+                    if(isset($_GET['application'])) 
+                        echo "<input name='update' type='submit' value='Update' class='button button_form'>";
+                    else
+                        echo "<input name='submit' type='submit' value='Submit' class='button button_form'>";
+                ?>
+                
+                
                 <input type="reset" value="Clear" class="button button_form">
-                <input name="delete" type="submit" value="Delete" class="button button_form">
+
+                <?php if(isset($_GET['application'])) 
+                    echo "<input name='delete' type='submit' value='Delete' class='button button_form'>"; 
+                ?>
+
+                
             </div>
         </form>
     </main>

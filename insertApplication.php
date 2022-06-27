@@ -6,11 +6,12 @@
     
         checkExpiredSession("REDIRECT");
         checkAuthorizeAccess("STAFF");
-    if(isset($_GET['submit'])){
+        
+    if(isset($_POST['submit'])){
         $submission_date = date('Y-m-d H:i:s');
-        $applicant_id = '1';//abababababa
-        $application_date = $_GET['date'];
-        $application_reason = $_GET['leave_reason'];
+        $applicant_id = $_SESSION['user']['user_id'];//abababababa
+        $application_date = $_POST['date'];
+        $application_reason = $_POST['leave_reason'];
         $applicaiton_status = 'PENDING';
     
         $sql="INSERT INTO APPLICATION(applicant_ID,date_submitted,leave_date,leave_reason,approval_status,last_modify)
@@ -23,18 +24,42 @@
         }
         redirectTo("staffHomepage.php");
     }
+?>
 
-    if(isset($_GET['delete'])){
-        $application_id = $_GET['application'];
-        echo "$application_id";
-        $sql="DELETE FROM APPLICATION WHERE application_id=$application_id";
+<?php 
+    if(isset($_POST['delete'])){
+        
+        $delete_this_application = $_REQUEST['delete_application'];
+        
+ 
+        $sql="DELETE FROM APPLICATION WHERE application_id=$delete_this_application";
         if($conn->query($sql)===TRUE){
-            echo " .";
+            echo " Application deleted";
         }else{
             echo "Error.";
         }
-        //redirectTo("staffHomepage.php");
+        redirectTo("staffHomepage.php");
     }
-    
+?>
+
+<?php 
+    if(isset($_POST['update'])){
+        
+        $update_this_application = $_REQUEST['delete_application'];
+        
+ 
+        $sql=
+        "UPDATE APPLICATION
+        SET last_modify=NOW(), leave_reason='$_POST[leave_reason]','leave_reason=$_POST[date]';
+        WHERE application_id=$delete_this_application";
+
+
+        if($conn->query($sql)===TRUE){
+            echo " Application updated";
+        }else{
+            echo "Error.";
+        }
+        redirectTo("staffHomepage.php");
+    }
 ?>
 
