@@ -4,9 +4,11 @@
     include_once('php/utils.php');
     include_once('php/session_expiry.php');
     include_once("php/check_authorize.php");
+    include_once("php/update_expired_application.php");
 
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("MANAGER");
+    updateExpiredApplication($conn);
 
     $application_id=$_GET['application'];
     // , MANAGER.username AS manager_name
@@ -31,12 +33,16 @@
         $last_modified=$application['last_modify'];
         $leave_date=$application['leave_date'];
         $leave_reason=$application['leave_reason'];
-
+        
         $approval_manager="N/A";
         $approval_time="N/A";
 
         if ($application['approval_manager_ID'] !== null){
             // query here
+            $sql=
+            "SELECT username AS approval_manager
+            FROM MANAGER WHERE user_id=
+            "
         }
        
         if ($application['approval_time'] !== null){

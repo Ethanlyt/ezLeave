@@ -3,9 +3,11 @@
     include_once('php/db_connect.php');
     include_once('php/session_expiry.php');
     include_once("php/check_authorize.php");
+    include_once("php/update_expired_application.php");
 
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("STAFF");
+    updateExpiredApplication($conn);
 
     
     //Check Log in
