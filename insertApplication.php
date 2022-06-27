@@ -1,15 +1,5 @@
-<?php 
-    session_start();
-    include_once('php/db_connect.php');
-    include_once('php/session_expiry.php');
-    include_once("php/check_authorize.php");
-    include_once('php/utils.php');
-
-    checkExpiredSession("REDIRECT");
-    checkAuthorizeAccess("STAFF");
-
-
-
+<?php
+        include_once('php/db_connect.php');
     if(isset($_GET['submit'])){
         $submission_date = date('Y-m-d H:i:s');
         $applicant_id = '1';//abababababa
