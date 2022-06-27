@@ -82,9 +82,14 @@
                     else
                         echo "<input name='submit' type='submit' value='Submit' class='button button_form'>";
                 ?>
+
+                <?php 
+                    if(!isset($_GET['application'])) 
+                        echo "<input type='reset' value='Clear' class='button button_form'>";
+                ?>
                 
                 
-                <input type="reset" value="Clear" class="button button_form">
+                
 
                 <?php if(isset($_GET['application'])) 
                     echo "<input name='delete' type='submit' value='Delete' class='button button_form'>"; 
