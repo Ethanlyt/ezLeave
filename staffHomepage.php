@@ -17,9 +17,10 @@
     $user_id = $_SESSION['user']['user_id'];
 
 
-    $sql = 
-    "SELECT application_id, date_submitted, approval_status FROM APPLICATION
-    WHERE applicant_ID = '$user_id'";
+    $sql = "
+        SELECT application_id, date_submitted, leave_date, approval_status FROM APPLICATION
+        WHERE applicant_ID = '$user_id'
+    ";
 
     $result = $conn->query($sql);
 
@@ -116,7 +117,12 @@
         </div>
         
         <div class="container_item">
-            <?php include_once("php/components/application_card.php"); ?>
+
+            
+            <?php
+                while ($row = $result->fetch_assoc() ) 
+                    include("php/components/application_card.php"); 
+            ?>
         </div>
         
         
