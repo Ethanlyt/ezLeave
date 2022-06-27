@@ -1,5 +1,6 @@
 <?php 
     session_start();
+
     include_once('php/db_connect.php');
     include_once('php/session_expiry.php');
     include_once("php/check_authorize.php");
@@ -7,17 +8,64 @@
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("MANAGER");
 
+    setDefaultCookie();
+    checkSetCookie();
 
-    $sql = 
-        'SELECT APPLICATION.application_id, APPLICATION.date_submitted, APPLICATION.approval_status, STAFF.username 
+    $filter = isset($_COOKIE['MANAGERHOME_FILTER'])? $_COOKIE['MANAGERHOME_FILTER']: '';
+    $sort = isset($_COOKIE['MANAGERHOME_SORT'])? $_COOKIE['MANAGERHOME_SORT']: '';
+
+
+    //* Retrieve a list of applications, according to filter and sort order
+    $wherestmt = $filter === 'ALL' || $filter === ''? '': "WHERE approval_status = '$filter'";
+    
+    if ($sort === 'DATEADDED_ASC') $sortstmt = 'ORDER BY date_submitted ASC';
+    else if ($sort === 'LEAVEDATE_ASC') $sortstmt = 'ORDER BY leave_date ASC';
+    else if ($sort === 'LEAVEDATE_DESC') $sortstmt = 'ORDER BY leave_date DESC';
+    else $sortstmt = 'ORDER BY date_submitted DESC';
+
+
+    $query = "
+        SELECT 
+            APPLICATION.application_id, 
+            APPLICATION.date_submitted, 
+            APPLICATION.leave_date, 
+            APPLICATION.approval_status, 
+            STAFF.username 
         FROM APPLICATION 
-        INNER JOIN STAFF ON APPLICATION.applicant_ID=STAFF.user_id';
+        INNER JOIN STAFF ON APPLICATION.applicant_ID=STAFF.user_id
+        $wherestmt
+        $sortstmt
+    ";
+    $stmt = $conn->prepare($query);
+    if (!$stmt->execute()) die("Error 500 - Failed to query database");
+    $result = $stmt->get_result();
 
-    $result = $conn->query($sql);
+    if ($result->num_rows === 0) $_GET['message_warning'] = 'No applications found.';
+?>
 
-    if ($result->num_rows === 0) $_GET['message_success'] = 'Database search successfully. No application found';
-    
-    
+
+<?php
+    function setDefaultCookie() {
+        if (!isset($_COOKIE['MANAGERHOME_FILTER'])) {
+            setcookie('MANAGERHOME_FILTER', 'ALL');
+            $_COOKIE['MANAGERHOME_FILTER'] = "ALL";
+        }
+        if (!isset($_COOKIE['MANAGERHOME_SORT'])) {
+            setcookie('MANAGERHOME_SORT', 'DATEADDED_DESC');
+            $_COOKIE['MANAGERHOME_SORT'] = "DATEADDED_DESC";
+        }
+    }
+
+    function checkSetCookie() {
+        if (isset($_GET['filter'])) {
+            setcookie('MANAGERHOME_FILTER', $_GET['filter']);
+            $_COOKIE['MANAGERHOME_FILTER'] = $_GET['filter'];
+        }
+        if (isset($_GET['sort'])) {
+            setcookie('MANAGERHOME_SORT', $_GET['sort']);
+            $_COOKIE['MANAGERHOME_SORT'] = $_GET['sort'];
+        }
+    }
 ?>
 
 
@@ -39,19 +87,14 @@
 
 
 <body>
-
     <?php include_once("php/components/nav.php"); ?>
     
-    
     <div class="intro">
-
-
         <h3 class="brand-title">
             <i class="lab la-envira"></i>
             EzLeave
         </h3>
 
-       
         <p class="brand-desc">
             Apply leaves with ease
         </p>
@@ -73,35 +116,46 @@
     </div>
 
     
-
     <main class="container">
-    
         <div class="container_nav">
             <h2><i class="las la-file-invoice"></i> Leave Applications</h2> 
             
-
             <div class="dropdown">
-                <button class="button dropbtn"><i class="las la-sort"></i></button>
+                <button class="button dropbtn" title='Sort'><i class="las la-sort"></i></button>
                 <div class="dropdown-content">
-                    <button class="button"><i class="las la-calendar-plus"></i> Date added (Ascending)</button>
-                    <button class="button"><i class="las la-calendar-day"></i> Leave date</button>
+                    <a href='managerHome.php?sort=DATEADDED_ASC'>
+                        <button class="button <?php echo $sort === 'DATEADDED_ASC'? 'selected': ''; ?>"><i class="las la-plus-square"></i> Date Added (Asc)</button>
+                    </a>
+                    <a href='managerHome.php?sort=DATEADDED_DESC'>
+                        <button class="button <?php echo $sort === 'DATEADDED_DESC'? 'selected': ''; ?>"><i class="las la-plus-square"></i> Date Added (Desc)</button>
+                    </a>
+                    <a href='managerHome.php?sort=LEAVEDATE_ASC'>
+                        <button class="button <?php echo $sort === 'LEAVEDATE_ASC'? 'selected': ''; ?>"><i class="las la-calendar-week"></i> Leave Date (Asc)</button>
+                    </a>
+                    <a href='managerHome.php?sort=LEAVEDATE_DESC'>
+                        <button class="button <?php echo $sort === 'LEAVEDATE_DESC'? 'selected': ''; ?>"><i class="las la-calendar-week"></i> Leave Date (Desc)</button>
+                    </a>
                 </div>
             </div>
 
             <div class="dropdown">
-                <button class="button dropbtn"><i class="las la-filter"></i></button>
+                <button class="button dropbtn" title='Filter by Application Status'><i class="las la-filter"></i></button>
                 <div class="dropdown-content">
-                        <input type="checkbox" id="check1" class="checkbox">
-                        <label for="check1"> Pending<i class="las la-spinner" style="color: #1e80c1;padding-left: 1em;"></i></label>
-                    
-                        <input type="checkbox" id="check2" class="checkbox">
-                        <label for="check2"> Verified<i class="las la-check" style="color:rgb(8,181,8);padding-left: 1em;"></i></label>
-
-                        <input type="checkbox" id="check3" class="checkbox">
-                        <label for="check3"> Rejected<i class="las la-times" style="color:rgb(233,45,45);padding-left: 1em;"></i></label>
-
-                        <input type="checkbox" id="check4" class="checkbox">
-                        <label for="check4"> Expired<i class="las la-times-circle" style="color:grey;padding-left: 1em;"></i></label>
+                    <a href='managerHome.php?filter=ALL'>
+                        <button class="button <?php echo $filter === 'ALL'? 'selected': ''; ?>"><i class="lab la-wpforms"></i> All</button>
+                    </a>
+                    <a href='managerHome.php?filter=PENDING'>
+                        <button class="button <?php echo $filter === 'PENDING'? 'selected': ''; ?>"><i class="las la-spinner"></i> Pending</button>
+                    </a>
+                    <a href='managerHome.php?filter=VERIFIED'>
+                        <button class="button <?php echo $filter === 'VERIFIED'? 'selected': ''; ?>"><i class="las la-check-circle"></i> Verified</button>
+                    </a>
+                    <a href='managerHome.php?filter=REJECTED'>
+                        <button class="button <?php echo $filter === 'REJECTED'? 'selected': ''; ?>"><i class="las la-times-circle"></i> Rejected</button>
+                    </a>
+                    <a href='managerHome.php?filter=EXPIRED'>
+                        <button class="button <?php echo $filter === 'EXPIRED'? 'selected': ''; ?>"><i class="las la-calendar-times"></i> Expired</button>
+                    </a>
                 </div>
             </div>
 
@@ -112,12 +166,10 @@
         <?php include_once('php/components/messagebox.php'); ?>
 
         <div class="container_item">
-
-
-            <?php include_once("php/components/application_card.php"); ?>
-
-
-
+            <?php 
+                while ($row = $result->fetch_assoc())
+                    include('php/components/application_card.php');
+            ?>
         </div>
     </main>
 

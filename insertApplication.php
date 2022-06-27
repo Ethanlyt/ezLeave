@@ -15,7 +15,7 @@
         $applicant_id = '1';//abababababa
         $application_date = $_GET['date'];
         $application_reason = $_GET['leave_reason'];
-        $applicaiton_status = 'Pending';
+        $applicaiton_status = 'PENDING';
     
         $sql="INSERT INTO APPLICATION(applicant_ID,date_submitted,leave_date,leave_reason,approval_status,last_modify)
         VALUES('$applicant_id','$submission_date','$application_date','$application_reason','$applicaiton_status',NOW())";

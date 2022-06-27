@@ -188,55 +188,7 @@ button:active{
     background-color: #b3b3b3;
 }
 
-/* ===========================
-    Drop down
- ============================== */
- .dropdown {
-    position: relative;
 
-}
-
-.dropbtn {
-    padding: 8px 16px;
-    border-radius: 3px;
-    font-size: 3rem;
-    justify-self: flex-end;
-}
-
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    z-index: 1;
-
-    flex-direction: column;
-    min-width: 300%;
-    
-    background-color: #fff;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
-
-.dropdown-content button {
-    padding: 1em 2em;
-    width: 100%;
-    display: block;
-    transition: all .3s ease;
-    font-size: 1.5rem;
-}
-
-.dropdown-content button:is(:hover, :focus,.selected) {
-    background-color: #d7d7d7;
-
-}
-
-.dropdown:is(:hover, :focus) .dropdown-content {
-    display: flex;
-}
-
-.dropdown:is(:hover, :focus) .dropbtn {
-    background-color: #b3b3b3;
-}
 
 /* ===========================
     Table
