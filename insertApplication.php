@@ -23,6 +23,18 @@
         }
         redirectTo("staffHomepage.php");
     }
+
+    if(isset($_GET['delete'])){
+        $application_id = $_GET['application'];
+        echo "$application_id";
+        $sql="DELETE FROM APPLICATION WHERE application_id=$application_id";
+        if($conn->query($sql)===TRUE){
+            echo " .";
+        }else{
+            echo "Error.";
+        }
+        //redirectTo("staffHomepage.php");
+    }
     
 ?>
 

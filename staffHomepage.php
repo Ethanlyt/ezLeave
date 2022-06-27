@@ -117,11 +117,9 @@
         </div>
         
         <div class="container_item">
-
-            
-            <?php
-                while ($row = $result->fetch_assoc() ) 
-                    include("php/components/application_card.php"); 
+        <?php 
+                while ($row = $result->fetch_assoc())
+                    include('php/components/application_card.php');
             ?>
         </div>
         
