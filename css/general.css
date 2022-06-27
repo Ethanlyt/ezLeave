@@ -133,14 +133,13 @@ a {
 
 .dropdown-content button:is(:hover, :focus,.selected) {
     background-color: #d7d7d7;
-
 }
 
 .dropdown:is(:hover, :focus) .dropdown-content {
     display: flex;
 }
 
-.dropdown:is(:hover, :focus) .dropbtn {
+.dropbtn:is(:hover, :focus) {
     background-color: #b3b3b3;
 }
 
@@ -178,6 +177,7 @@ a {
     font-size: 4rem;
     font-weight: 300;
 }
+
 
 
 
@@ -261,3 +261,10 @@ a {
 .status-verified { color: rgb(8, 181, 8); }
 .status-rejected { color: rgb(233, 45, 45); }
 .status-expired { color: grey; }
+
+
+@media only screen and (max-width: 768px) {
+    .container_nav h2, .dropbtn {
+        font-size: 2.5rem;
+    }
+}
