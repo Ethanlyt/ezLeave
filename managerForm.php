@@ -31,22 +31,28 @@
         $last_modified=$application['last_modify'];
         $leave_date=$application['leave_date'];
         $leave_reason=$application['leave_reason'];
-        
-        $approval_manager="N/A";
+
+        $approval_manager_id=$application['approval_manager_ID'];
+        $approval_manager_name="N/A";
         $approval_time="N/A";
 
-        if ($application['approval_manager_ID'] !== null){
+        if ($approval_manager_id !== null){
             // query here
             $sql=
             "SELECT username AS approval_manager
-            FROM MANAGER WHERE user_id=
-            "
+                FROM MANAGER
+                WHERE user_id=$approval_manager_id
+            ";
+            $result_manager = $conn->query($sql);
+            $approval_manager = $result_manager->fetch_assoc();
+            $approval_manager = $result_manager>
         }
        
         if ($application['approval_time'] !== null){
             // query here
         }
     }
+    echo $approval_manager;
 
 
 ?>
@@ -101,11 +107,11 @@
                     </tr>
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Approval manager: </th>
-                        <td class="content">NA</td>
+                        <td class="content">$approval_manager_name</td>
                     </tr>
                     <tr>
                         <th class="leave_detail_parameter_cont">Approval time: </th>
-                        <td class="content">NA</td>
+                        <td class="content">$approval_time</td>
                     </tr>
                     <tr>
                         <th class="leave_detail_parameter_cont">Last modified: </th>
