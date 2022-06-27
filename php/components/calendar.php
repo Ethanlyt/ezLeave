@@ -2,10 +2,8 @@
 <!-- This element shall be wrapped inside a <form> element for the value of 'date' to be submitted correctly -->
 
 <div class="calendar">
-
-
     <!-- The input element that should get submitted along with the form -->
-    <input type="date" name="date" class="calendar-input" id="calendar-input"/>
+    <input type="date" name="date" class="calendar-input" id="calendar-input" value='<?php echo (isset($leave_date)? $leave_date: ''); ?>'/>
 
     <!-- Overlay to select the year month -->
     <div class="calendar-overlay calendar-style">

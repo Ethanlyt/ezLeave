@@ -21,13 +21,13 @@ let dateInput;
 const now = new Date();
 const date = {
     year: now.getFullYear(),
-    month: now.getMonth(),
+    month: now.getMonth(),  // 0 indexed
     day: now.getDate()
 };
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    const startingIndex = new Date(date.year, date.month, 1).getDay();
+    let startingIndex = new Date(date.year, date.month, 1).getDay();
 
     leftbtn = document.getElementById('calendar-left');
     rightbtn = document.getElementById('calendar-right');
@@ -48,9 +48,26 @@ document.addEventListener("DOMContentLoaded", function() {
         monthGrid.addEventListener('click', ()=> selectMonth(i-1) );
     }
 
-    setYearMonthText();
-    setDays();
-    setSelectedDay( calendarGrids[date.day + startingIndex - 1] );
+    // If initial value is provided to the calendar input
+    if (dateInput && dateInput.value && new Date(dateInput.value).valueOf) {
+        const d = new Date(dateInput.value);
+        date.year = d.getFullYear();
+        date.month = d.getMonth();
+        date.day = d.getDate();
+
+        startingIndex = new Date(date.year, date.month, 1).getDay();
+
+        setYearMonthText();
+        setDays();
+        setSelectedDay( calendarGrids[date.day + startingIndex - 1] );
+    }
+    // Else just use today's date on client computer
+    else {
+        setYearMonthText();
+        setDays();
+        setSelectedDay( calendarGrids[date.day + startingIndex - 1] );
+    }
+
 
     leftbtn.addEventListener('click', setPrevmonth);
     rightbtn.addEventListener('click', setNextMonth);
@@ -190,4 +207,10 @@ function selectMonth(month) {
     // Redraw the calendar.
     setYearMonthText();
     setDays();
+}
+
+
+// Sets the calendar with the value of dateInput, if not empty
+function setCalendarWithInputValue() {
+    
 }
