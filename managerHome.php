@@ -1,3 +1,15 @@
+<?php
+    //? The sorting and filter is done in cookie: (MANAGERHOME_FILTER and MANAGERHOME_SORT)
+    //? 
+    //? The MANAGERHOME_FILTER can take the following values:
+    //?     { ALL, PENDING, VERIFIED, REJECTED, EXPIRED }
+    //?
+    //? The MANAGERHOME_SORT can take the following values:
+    //?     { DATEADDED_ASC, DATEADDED_DESC, LEAVEDATE_ASC, LEAVEDATE_DESC }
+?>
+
+
+
 <?php 
     session_start();
 
