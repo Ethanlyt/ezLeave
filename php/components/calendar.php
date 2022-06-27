@@ -5,7 +5,7 @@
 
 
     <!-- The input element that should get submitted along with the form -->
-    <input type="date" name="date" class="calendar-input" id="calendar-input" />
+    <input type="date" name="date" class="calendar-input" id="calendar-input"/>
 
     <!-- Overlay to select the year month -->
     <div class="calendar-overlay calendar-style">
