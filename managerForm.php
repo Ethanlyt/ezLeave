@@ -16,68 +16,9 @@
     $application_id=$_GET['application'];
 
 
-<<<<<<< HEAD
     //* Handle managerForm Approval and Rejections
     if (isset($_POST['APPROVED']) || isset($_POST['REJECTED'])) {
         echo "APPROVAL";
-||||||| 4a40a9a
-    if ( $result->num_rows === 0 ) redirectTo("managerHome.php?message_danger=Error displaying application");
-    else{
-        $application=$result->fetch_assoc();
-        $application_ID=$application_id;
-        $applicant_name=$application['applicant_name'];
-        $applicant_id=$application['staff_id'];
-        $date_submitted=$application['date_submitted'];
-        $last_modified=$application['last_modify'];
-        $leave_date=$application['leave_date'];
-        $leave_reason=$application['leave_reason'];
-        
-        $approval_manager="N/A";
-        $approval_time="N/A";
-
-        if ($application['approval_manager_ID'] !== null){
-            // query here
-            $sql=
-            "SELECT username AS approval_manager
-            FROM MANAGER WHERE user_id=
-            "
-        }
-       
-        if ($application['approval_time'] !== null){
-            // query here
-        }
-=======
-    if ( $result->num_rows === 0 ) redirectTo("managerHome.php?message_danger=Error displaying application");
-    else{
-        $application=$result->fetch_assoc();
-        $application_ID=$application_id;
-        $applicant_name=$application['applicant_name'];
-        $applicant_id=$application['staff_id'];
-        $date_submitted=$application['date_submitted'];
-        $last_modified=$application['last_modify'];
-        $leave_date=$application['leave_date'];
-        $leave_reason=$application['leave_reason'];
-
-        $approval_manager_id=$application['approval_manager_ID'];
-        $approval_manager_name="N/A";
-        $approval_time="N/A";
-
-        if ($approval_manager_id !== null){
-            // query here
-            $sql=
-            "SELECT username AS approval_manager
-                FROM MANAGER
-                WHERE user_id=$approval_manager_id
-            ";
-            $result_manager = $conn->query($sql);
-            $approval_manager = $result_manager->fetch_assoc();
-            $approval_manager = $result_manager>
-        }
-       
-        if ($application['approval_time'] !== null){
-            // query here
-        }
->>>>>>> a23ee3489c1e782670a25784769da80c9aa48ec4
     }
     echo $approval_manager;
 
