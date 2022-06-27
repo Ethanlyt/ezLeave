@@ -50,11 +50,13 @@ CREATE TABLE APPLICATION(
 
 ALTER TABLE APPLICATION
     ADD CONSTRAINT staff_id_fk FOREIGN KEY(applicant_ID)
-    REFERENCES STAFF(user_id);
+    REFERENCES STAFF(user_id)
+    ON DELETE CASCADE;
 
 ALTER TABLE APPLICATION
     ADD CONSTRAINT manager_name_fk FOREIGN KEY(approval_manager_ID)
-    REFERENCES MANAGER(user_id);
+    REFERENCES MANAGER(user_id) 
+    ON DELETE SET NULL;
 
 ALTER TABLE STAFF
 ADD CONSTRAINT staff_user_level_check CHECK (user_level IN ('ADMIN', 'MANAGER', 'STAFF'));
@@ -87,3 +89,4 @@ INSERT INTO MANAGER
 (username, password, user_level, full_name, ic_passport, contact_no, email, staff_id)
 VALUES
 ("Bob", "123456", "MANAGER", "Bob Kahn", "020202-02-0202", "019-87654321", "bobkhan@gmail.com", "BK001");
+

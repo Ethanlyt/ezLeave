@@ -1,7 +1,7 @@
 
 <!-- This element shall be wrapped inside a <form> element for the value of 'date' to be submitted correctly -->
 
-<div class="calendar">
+<div class="calendar" style='<?php echo (isset($application_status) && $application_status !== 'PENDING'? 'pointer-events: none': ''); ?>'>
     <!-- The input element that should get submitted along with the form -->
     <input type="date" name="date" class="calendar-input" id="calendar-input" value='<?php echo (isset($leave_date)? $leave_date: ''); ?>'/>
 

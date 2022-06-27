@@ -161,8 +161,8 @@
                     <a href='managerHome.php?filter=PENDING'>
                         <button class="button <?php echo $filter === 'PENDING'? 'selected': ''; ?>"><i class="las la-spinner"></i> Pending</button>
                     </a>
-                    <a href='managerHome.php?filter=VERIFIED'>
-                        <button class="button <?php echo $filter === 'VERIFIED'? 'selected': ''; ?>"><i class="las la-check-circle"></i> Verified</button>
+                    <a href='managerHome.php?filter=APPROVED'>
+                        <button class="button <?php echo $filter === 'APPROVED'? 'selected': ''; ?>"><i class="las la-check-circle"></i> Approved</button>
                     </a>
                     <a href='managerHome.php?filter=REJECTED'>
                         <button class="button <?php echo $filter === 'REJECTED'? 'selected': ''; ?>"><i class="las la-times-circle"></i> Rejected</button>

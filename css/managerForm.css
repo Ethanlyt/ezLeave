@@ -7,8 +7,7 @@
     color: grey;
 }
 
-
-.calendar-header-btn, .calendar-mon, .calendar-header-text, .calendar-button {
+.calendar {
     pointer-events: none;
 }
 

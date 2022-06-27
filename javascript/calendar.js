@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // If initial value is provided to the calendar input
-    if (dateInput && dateInput.value && new Date(dateInput.value).valueOf) {
+    if (dateInput && dateInput.value && new Date(dateInput.value).valueOf()) {
         const d = new Date(dateInput.value);
         date.year = d.getFullYear();
         date.month = d.getMonth();

@@ -24,6 +24,7 @@
             UPDATE application
             SET 
                 last_modify = NOW(),
+                approval_time = NOW(),
                 manager_remark = ?,
                 approval_manager_ID = ?,
                 approval_status = ?

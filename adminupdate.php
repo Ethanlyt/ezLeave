@@ -90,7 +90,9 @@
         $stmt = $conn->prepare("SELECT * FROM $user_level WHERE user_id = ?");
         $stmt->bind_param('i', $user_id);
         if (!$stmt->execute()) die("Error 500 - Error while querying database: " . $stmt->error);
-        $_SESSION['user'] = $stmt->get_result()->fetch_assoc();
+
+        if ($_SESSION['user']['user_id'] === $user_id && $_SESSION['user']['user_level'] === $user_level)
+            $_SESSION['user'] = $stmt->get_result()->fetch_assoc();
 
         redirectTo("$redirecturl?message_success=Successfully updated user");
     }
