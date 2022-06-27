@@ -1,5 +1,11 @@
 <?php
+        session_start();
         include_once('php/db_connect.php');
+        include_once('php/session_expiry.php');
+        include_once("php/check_authorize.php");
+    
+        checkExpiredSession("REDIRECT");
+        checkAuthorizeAccess("STAFF");
     if(isset($_GET['submit'])){
         $submission_date = date('Y-m-d H:i:s');
         $applicant_id = '1';//abababababa
@@ -14,8 +20,9 @@
             echo "Application submitted.";
         }else{
             echo "Error submitting the application. Please try agian later.";
-        };
+        }
+        redirectTo("staffHomepage.php");
     }
-    redirectTo("staffHomepage.php");
+    
 ?>
 
