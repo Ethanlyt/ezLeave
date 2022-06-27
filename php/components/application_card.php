@@ -6,7 +6,7 @@
     //! Like: while ($row = $result->fetch_assoc() ) { 
     //!     include_once('application_card.php');
     //! }
-
+    
     if ($user_level === "STAFF") $redirecturl = "staffForm.php?application={$row['application_id']}";
     else if ($user_level === "MANAGER") $redirecturl = "managerForm.php?application={$row['application_id']}";
     else $redirecturl = "index.php?message_warning=Application Card Warning: not staff nor manager user";
@@ -18,6 +18,7 @@
     else if ($status === 'EXPIRED') $status_cls = 'status-expired';
     else $status_cls = '';
 ?>
+
 
 <a href='<?php echo $redirecturl; ?>' class='button card application-card'>
     <h4 class='card-title application-title'><i class="lab la-wpforms"></i> Leave #<?php echo $row["application_id"]; ?></h4>
