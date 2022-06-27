@@ -7,7 +7,8 @@
         while($row = $result->fetch_assoc()) {
             echo
                 "<div class='container_item'>
-                    <a href='./staffForm.php' class='button card application-card'>
+
+                    <a href='./staffForm.php?application={$row['application_id']}' class='button card application-card'>
                         <h4 class='card-title application-title'>Leave #".$row["application_id"]."</h4>
 
                         <hr class='card-divider'>
@@ -22,6 +23,7 @@
                         <p class='card-value application-status status-pending'>".$row["approval_status"]."</p>
                     </a>
                 </div>";
+
         }
     }
 
