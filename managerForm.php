@@ -124,29 +124,9 @@
                     </tr>
                     <tr class="leave_detail_parameter">
                         <th class="leave_detail_parameter_cont">Approval manager: </th>
-<<<<<<< HEAD
                         <td class="content"><?php echo $approval_manager; ?></td>
-||||||| 4a40a9a
-                        <td class="content">NA</td>
-=======
-                        <td class="content">$approval_manager_name</td>
->>>>>>> a23ee3489c1e782670a25784769da80c9aa48ec4
                     </tr>
-<<<<<<< HEAD
                     <tr class="leave_detail_parameter">
-||||||| 4a40a9a
-                    <tr>
-                        <th class="leave_detail_parameter_cont">Approval time: </th>
-                        <td class="content">NA</td>
-                    </tr>
-                    <tr>
-=======
-                    <tr>
-                        <th class="leave_detail_parameter_cont">Approval time: </th>
-                        <td class="content">$approval_time</td>
-                    </tr>
-                    <tr>
->>>>>>> a23ee3489c1e782670a25784769da80c9aa48ec4
                         <th class="leave_detail_parameter_cont">Last modified: </th>
                         <td class="content"><?php echo $last_modified?></td>
                     </tr>

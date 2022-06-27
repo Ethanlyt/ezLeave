@@ -159,7 +159,8 @@ function setSelectedDay(grid) {
 
     selectedDay.classList.add('calendar-day-selected');
 
-    dateInput.value = `${date.year}-${date.month.toString().padStart(2, "0")}-${date.day.toString().padStart(2, "0")}`;
+    //! Remember that date.month starts from 0. We need to recover that.
+    dateInput.value = `${date.year}-${(date.month+1).toString().padStart(2, "0")}-${date.day.toString().padStart(2, "0")}`;
 }
 
 
