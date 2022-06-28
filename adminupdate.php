@@ -48,8 +48,8 @@
         if ($error_msg !== '') redirectTo("adminform.php?message_danger=$error_msg");
 
         $stmt = $conn->prepare("
-            INSERT INTO $user_level
-            (username,password,user_level,full_name,ic_passport,contact_no,email,staff_id)
+            INSERT INTO " . strtolower($user_level) .
+            " (username,password,user_level,full_name,ic_passport,contact_no,email,staff_id)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ");
         $stmt->bind_param("ssssssss", $username, $password, $user_level, $full_name, $ic, $contact, $email, $staff_id);
@@ -72,8 +72,8 @@
             redirectTo("$redirecturl?message_danger=Unauthorized. You cannot update users other than your own");
 
         $stmt = $conn->prepare("
-            UPDATE $user_level
-            SET
+            UPDATE " . strtolower($user_level) .
+            " SET
                 username = ?,
                 password = ?,
                 full_name = ?,
@@ -87,7 +87,7 @@
         if (!$stmt->execute()) die("Error 500 - Error while querying database: " . $stmt->error);
         
         // We need to update the session's user account
-        $stmt = $conn->prepare("SELECT * FROM $user_level WHERE user_id = ?");
+        $stmt = $conn->prepare("SELECT * FROM " . strtolower($user_level) . " WHERE user_id = ?");
         $stmt->bind_param('i', $user_id);
         if (!$stmt->execute()) die("Error 500 - Error while querying database: " . $stmt->error);
 
@@ -110,8 +110,8 @@
             redirectTo("$redirecturl?message_danger=Unauthorized. You cannot delete users other than your own");
 
         $stmt = $conn->prepare("
-            DELETE FROM $user_level
-            WHERE user_id = ?
+            DELETE FROM " . strtolower($user_level) .
+            " WHERE user_id = ?
         ");
         $stmt->bind_param("s", $user_id);
         if (!$stmt->execute()) die("Error 500 - Error while querying database: " . $stmt->error);

@@ -23,9 +23,9 @@
         if ( validatePassword($password) !== true ) return $_GET['message_danger'] = validatePassword($password);
 
         $stmt = $conn->prepare("
-            SELECT user_id, password, user_level FROM `staff` WHERE username = ? UNION
-            SELECT user_id, password, user_level FROM `admin` WHERE username = ? UNION
-            SELECT user_id, password, user_level FROM `manager` WHERE username = ?
+            SELECT user_id, password, user_level FROM staff WHERE username = ? UNION
+            SELECT user_id, password, user_level FROM admin WHERE username = ? UNION
+            SELECT user_id, password, user_level FROM manager WHERE username = ?
         ");
         $stmt->bind_param('sss', $username, $username, $username);
 
@@ -42,9 +42,9 @@
 
 
         // * Login Successful. Check user level and log the user in.
-        if ( $user['user_level'] === 'ADMIN') $stmt = $conn->prepare('SELECT * FROM `admin` WHERE user_id = ?');
-        else if ( $user['user_level'] === 'MANAGER') $stmt = $conn->prepare('SELECT * FROM `manager` WHERE user_id = ?');
-        else $stmt = $conn->prepare('SELECT * FROM `staff` WHERE user_id = ?');
+        if ( $user['user_level'] === 'ADMIN') $stmt = $conn->prepare('SELECT * FROM admin WHERE user_id = ?');
+        else if ( $user['user_level'] === 'MANAGER') $stmt = $conn->prepare('SELECT * FROM manager WHERE user_id = ?');
+        else $stmt = $conn->prepare('SELECT * FROM staff WHERE user_id = ?');
         
         $stmt->bind_param('s', $user['user_id']);
         if (!$stmt->execute()) die("Error 500: Error occurred during database fetching<br>" . $stmt->error);

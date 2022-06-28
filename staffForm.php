@@ -20,9 +20,9 @@
     if(isset($_GET['application'])){
         $application_id=$_GET['application'];
 
-        $sql="SELECT APPLICATION.*, STAFF.username AS applicant_name,STAFF.staff_id
-        FROM APPLICATION
-        INNER JOIN STAFF ON APPLICATION.applicant_ID=STAFF.user_id
+        $sql="SELECT application.*, staff.username AS applicant_name, staff.staff_id
+        FROM application
+        INNER JOIN staff ON application.applicant_id=staff.user_id
         WHERE application_id=$application_id";
         $result = $conn->query($sql);
 
@@ -31,13 +31,13 @@
 
         $application_ID=$application_id;
         $applicaNT_name=$row['applicant_name'];
-        $applicant_id=$row['applicant_ID'];
+        $applicant_id=$row['applicant_id'];
         $date_submitted=$row['date_submitted'];
         $leave_reason=$row['leave_reason'];
         $leave_date=$row['leave_date'];
         $last_modified=$row['last_modify'];
         $application_status=$row['approval_status'];
-        $approval_manager=$row['approval_manager_ID'];
+        $approval_manager=$row['approval_manager_id'];
         
 
         $is_modified = $application_status === "PENDING"; 
@@ -47,7 +47,7 @@
             $ApprovalTime=$row['approval_time'];
             $ApprovalRemark=$row['manager_remark'];
 
-            $sql="SELECT full_name AS manager_name FROM MANAGER WHERE user_id=$approval_manager";
+            $sql="SELECT full_name AS manager_name FROM manager WHERE user_id=$approval_manager";
             $result=$conn->query($sql);
             $row = $result->fetch_assoc();
             $ApprovalManager=$row['manager_name'];

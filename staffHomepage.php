@@ -45,8 +45,8 @@
             date_submitted, 
             leave_date, 
             approval_status 
-        FROM APPLICATION
-        WHERE applicant_ID = '$user_id'
+        FROM application
+        WHERE applicant_id = '$user_id'
         $wherestmt
         $sortstmt
     ";

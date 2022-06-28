@@ -1,4 +1,4 @@
-CREATE TABLE ADMIN(
+CREATE TABLE admin (
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(30) NOT NULL,
     user_level VARCHAR(10) NOT NULL,
@@ -6,7 +6,7 @@ CREATE TABLE ADMIN(
 );
 
 
-CREATE TABLE STAFF(
+CREATE TABLE staff (
     user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(30) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE STAFF(
 );
 
 
-CREATE TABLE MANAGER(
+CREATE TABLE manager (
     user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(30) NOT NULL,
@@ -31,10 +31,10 @@ CREATE TABLE MANAGER(
     staff_id VARCHAR(10) NOT NULL
 );
 
-CREATE TABLE APPLICATION(
+CREATE TABLE application (
     application_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    applicant_ID INT NOT NULL,
-    approval_manager_ID INT,
+    applicant_id INT NOT NULL,
+    approval_manager_id INT,
 
     date_submitted DATETIME NOT NULL, 
     leave_date DATE NOT NULL,
@@ -48,44 +48,44 @@ CREATE TABLE APPLICATION(
 
 
 
-ALTER TABLE APPLICATION
-    ADD CONSTRAINT staff_id_fk FOREIGN KEY(applicant_ID)
-    REFERENCES STAFF(user_id)
+ALTER TABLE application
+    ADD CONSTRAINT staff_id_fk FOREIGN KEY(applicant_id)
+    REFERENCES staff(user_id)
     ON DELETE CASCADE;
 
-ALTER TABLE APPLICATION
-    ADD CONSTRAINT manager_name_fk FOREIGN KEY(approval_manager_ID)
-    REFERENCES MANAGER(user_id) 
+ALTER TABLE application
+    ADD CONSTRAINT manager_name_fk FOREIGN KEY(approval_manager_id)
+    REFERENCES manager(user_id) 
     ON DELETE SET NULL;
 
-ALTER TABLE STAFF
+ALTER TABLE staff
 ADD CONSTRAINT staff_user_level_check CHECK (user_level IN ('ADMIN', 'MANAGER', 'STAFF'));
 
-ALTER TABLE MANAGER
+ALTER TABLE manager
 ADD CONSTRAINT manager_user_level_check CHECK (user_level IN ('ADMIN', 'MANAGER', 'STAFF'));
 
-ALTER TABLE ADMIN
+ALTER TABLE admin
 ADD CONSTRAINT admin_user_level_check CHECK (user_level IN ('ADMIN', 'MANAGER', 'STAFF'));
 
-ALTER TABLE APPLICATION
+ALTER TABLE application
 ADD CONSTRAINT application_current_stats_check CHECK (approval_status IN ('PENDING', 'APPROVED', 'REJECTED','EXPIRED'));
 
 
 
 -- Insert an admin
-INSERT INTO ADMIN
+INSERT INTO admin
 (username, password, user_level)
 VALUES
 ("hussein", "123456", "ADMIN");
 
 -- Insert a test staff
-INSERT INTO STAFF
+INSERT INTO staff
 (username, password, user_level, full_name, ic_passport, contact_no, email, staff_id)
 VALUES
 ("John", "123456", "STAFF", "John Doe", "010101-01-0101", "011-12345678", "johndoe@gmail.com", "JD001");
 
 -- Insert a test manager
-INSERT INTO MANAGER
+INSERT INTO manager
 (username, password, user_level, full_name, ic_passport, contact_no, email, staff_id)
 VALUES
 ("Bob", "123456", "MANAGER", "Bob Kahn", "020202-02-0202", "019-87654321", "bobkhan@gmail.com", "BK001");

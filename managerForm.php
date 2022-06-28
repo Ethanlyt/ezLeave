@@ -26,7 +26,7 @@
                 last_modify = NOW(),
                 approval_time = NOW(),
                 manager_remark = ?,
-                approval_manager_ID = ?,
+                approval_manager_id = ?,
                 approval_status = ?
             WHERE
                 application_id = ?
@@ -43,12 +43,12 @@
     //* Retrieve the application data
     $query = "
         SELECT 
-            APPLICATION.*, 
-            STAFF.username AS applicant_name,
-            STAFF.staff_id
-        FROM APPLICATION
+            application.*, 
+            staff.username AS applicant_name,
+            staff.staff_id
+        FROM application
         INNER JOIN 
-            STAFF ON APPLICATION.applicant_ID = STAFF.user_id
+            staff ON application.applicant_id = staff.user_id
         WHERE application_id = $application_id
     ";
     $stmt = $conn->prepare($query);
@@ -65,7 +65,7 @@
     $leave_date = $application['leave_date'];
     $leave_reason = $application['leave_reason'];
     $manager_remark = isset($application['manager_remark'])? $application['manager_remark']: '';
-    $approval_manager=$application['approval_manager_ID'];
+    $approval_manager=$application['approval_manager_id'];
 
     $is_pending = $application_status === 'PENDING';
 

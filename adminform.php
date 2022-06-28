@@ -27,6 +27,8 @@
     $f_email = '';
     $f_user_level = null;
 
+    
+
 
     //* Case 1 - Insert a new user (Admin only)
     if ($user_id === '') {
@@ -35,7 +37,7 @@
     }
     //* Case 2 - Modify an existing user (Admin, Personal details)
     else { 
-        $stmt = $conn->prepare("SELECT * FROM $user_level WHERE user_id = $user_id");
+        $stmt = $conn->prepare("SELECT * FROM " . strtolower($user_level) . " WHERE user_id = $user_id");
         if (!$stmt->execute()) die("Error 500 - Error while querying database");
         $result = $stmt->get_result();
         if ($result->num_rows === 0) die("Error 400 - Invalid user id. Non existent user id $user_id");

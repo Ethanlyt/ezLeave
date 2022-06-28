@@ -9,9 +9,6 @@
     checkExpiredSession("REDIRECT");
     checkAuthorizeAccess("STAFF");
 
-    // Fuck php for defaulting timezone :)
-    date_default_timezone_set('Asia/Singapore');
-
     // Return true if provided date (YYYY-MM-DD) is not today or in the past.
     function checkDateIsNotPast($datestr) {
         $dateunix = strtotime($datestr);
@@ -35,7 +32,7 @@
         $application_reason = $_POST['leave_reason'];
         $applicaiton_status = 'PENDING';
     
-        $sql="INSERT INTO APPLICATION(applicant_ID,date_submitted,leave_date,leave_reason,approval_status,last_modify)
+        $sql="INSERT INTO application (applicant_id,date_submitted,leave_date,leave_reason,approval_status,last_modify)
         VALUES('$applicant_id',NOW(),'$application_date','$application_reason','$applicaiton_status',NOW())";
 
         if($conn->query($sql) ) redirectTo("staffHomepage.php?message_success=Application submitted.");
@@ -47,7 +44,7 @@
     if(isset($_POST['delete'])){
         $delete_this_application = $_REQUEST['delete_application'];
  
-        $sql="DELETE FROM APPLICATION WHERE application_id=$delete_this_application";
+        $sql="DELETE FROM application WHERE application_id=$delete_this_application";
         if($conn->query($sql)) redirectTo("staffHomepage.php?message_success=Successfully deleted application.");
         else redirectTo("staffHomepage.php?application=$delete_this_application&message_danger=Failed to delete application.");
     }
@@ -60,7 +57,7 @@
         checkDateIsNotPast( $_POST['date'] );
 
         $sql = "
-        UPDATE APPLICATION
+        UPDATE application
         SET 
             last_modify=NOW(), 
             leave_reason='{$_POST['leave_reason']}',

@@ -40,13 +40,13 @@
 
     $query = "
         SELECT 
-            APPLICATION.application_id, 
-            APPLICATION.date_submitted, 
-            APPLICATION.leave_date, 
-            APPLICATION.approval_status, 
-            STAFF.username 
-        FROM APPLICATION 
-        INNER JOIN STAFF ON APPLICATION.applicant_ID=STAFF.user_id
+            application.application_id, 
+            application.date_submitted, 
+            application.leave_date, 
+            application.approval_status, 
+            staff.username 
+        FROM application 
+        INNER JOIN staff ON application.applicant_id=staff.user_id
         $wherestmt
         $sortstmt
     ";
